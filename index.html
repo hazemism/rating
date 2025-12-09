@@ -65,28 +65,31 @@
     }
 
     /* جدول التقييم */
-    .rating-table-wrapper {
-      overflow-x: auto; /* السماح بالتمرير على الموبايل */
-    }
     .rating-table {
       width: 100%;
       border-collapse: separate;
       border-spacing: 0 8px;
       font-size: 0.95rem;
-      min-width: 600px; /* الحفاظ على شكل الجدول */
+      table-layout: fixed; /* توزيع الأعمدة بالتساوي */
     }
     .rating-table th, .rating-table td {
       padding: 10px 12px;
       text-align: center;
       background: rgba(255,255,255,0.05);
       border-radius: 8px;
-      white-space: nowrap;
+      word-wrap: break-word; /* السماح للكلمات الطويلة بأن تكسر السطر */
     }
     .rating-table th {
       font-weight: 700;
       color: var(--light-gray);
       background: rgba(255,255,255,0.08);
     }
+    /* تحديد عرض الأعمدة بالنسبة المئوية */
+    .rating-table th:nth-child(1), .rating-table td:nth-child(1) { width: 20%; }
+    .rating-table th:nth-child(2), .rating-table td:nth-child(2) { width: 15%; }
+    .rating-table th:nth-child(3), .rating-table td:nth-child(3) { width: 65%; }
+
+    /* مسافة صغيرة جداً بين Score و Description */
     .rating-table td.score { padding-right: 6px; }
     .rating-table td.desc { padding-left: 6px; }
 
@@ -153,7 +156,6 @@
     .connection-icon { width: 24px; height: 24px; flex: 0 0 24px; }
     .connection-label { font-size: 0.95rem; }
 
-    /* إزالة أي media query يغير شكل الصفحة بشكل كبير */
   </style>
 </head>
 <body>
@@ -169,25 +171,23 @@
   <!-- جدول التقييم -->
   <section class="section">
     <h2>My rating system</h2>
-    <div class="rating-table-wrapper">
-      <table class="rating-table">
-        <thead>
-          <tr><th>Rating</th><th>Score</th><th>Description</th></tr>
-        </thead>
-        <tbody>
-          <tr><td><span class="pill">10</span></td><td class="score">5.0</td><td class="desc">Perfect</td></tr>
-          <tr><td><span class="pill">09</span></td><td class="score">4.5</td><td class="desc">Perfect, but with a flaw</td></tr>
-          <tr><td><span class="pill">08</span></td><td class="score">4.0</td><td class="desc">Perfect, but with few flaws</td></tr>
-          <tr><td><span class="pill">07</span></td><td class="score">3.5</td><td class="desc">Good, but not perfect</td></tr>
-          <tr><td><span class="pill">06</span></td><td class="score">3.0</td><td class="desc">Okay, didn’t love it, but don’t regret watching it</td></tr>
-          <tr><td><span class="pill">05</span></td><td class="score">2.5</td><td class="desc">Watch it or not — it didn’t make any impact but also wasn’t bad</td></tr>
-          <tr><td><span class="pill">04</span></td><td class="score">2.0</td><td class="desc">Regret watching it — bad but not trash</td></tr>
-          <tr><td><span class="pill">03</span></td><td class="score">1.5</td><td class="desc">Trash, but with a few positive aspects</td></tr>
-          <tr><td><span class="pill">02</span></td><td class="score">1.0</td><td class="desc">Trash, but with one positive aspect</td></tr>
-          <tr><td><span class="pill">01</span></td><td class="score">0.5</td><td class="desc">Complete trash or I hate it</td></tr>
-        </tbody>
-      </table>
-    </div>
+    <table class="rating-table">
+      <thead>
+        <tr><th>Rating</th><th>Score</th><th>Description</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><span class="pill">10</span></td><td class="score">5.0</td><td class="desc">Perfect</td></tr>
+        <tr><td><span class="pill">09</span></td><td class="score">4.5</td><td class="desc">Perfect, but with a flaw</td></tr>
+        <tr><td><span class="pill">08</span></td><td class="score">4.0</td><td class="desc">Perfect, but with few flaws</td></tr>
+        <tr><td><span class="pill">07</span></td><td class="score">3.5</td><td class="desc">Good, but not perfect</td></tr>
+        <tr><td><span class="pill">06</span></td><td class="score">3.0</td><td class="desc">Okay, didn’t love it, but don’t regret watching it</td></tr>
+        <tr><td><span class="pill">05</span></td><td class="score">2.5</td><td class="desc">Watch it or not — it didn’t make any impact but also wasn’t bad</td></tr>
+        <tr><td><span class="pill">04</span></td><td class="score">2.0</td><td class="desc">Regret watching it — bad but not trash</td></tr>
+        <tr><td><span class="pill">03</span></td><td class="score">1.5</td><td class="desc">Trash, but with a few positive aspects</td></tr>
+        <tr><td><span class="pill">02</span></td><td class="score">1.0</td><td class="desc">Trash, but with one positive aspect</td></tr>
+        <tr><td><span class="pill">01</span></td><td class="score">0.5</td><td class="desc">Complete trash or I hate it</td></tr>
+      </tbody>
+    </table>
   </section>
 
   <!-- الاقتباسات -->
