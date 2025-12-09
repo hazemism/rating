@@ -46,11 +46,9 @@
       padding: 0 20px;
     }
 
-    h1, h2 {
+    h2 {
       text-align: center;
       text-shadow: 0 2px 20px rgba(0,0,0,0.6);
-    }
-    h2 {
       font-size: 1.5rem;
       color: var(--white);
       margin: 35px 0 15px;
@@ -73,7 +71,7 @@
       table-layout: fixed; /* توزيع الأعمدة بالتساوي */
     }
     .rating-table th, .rating-table td {
-      padding: 8px 10px; /* تقليل الحشو لتناسب الأعمدة */
+      padding: 8px 10px;
       text-align: center;
       background: rgba(255,255,255,0.05);
       border-radius: 8px;
@@ -83,14 +81,15 @@
       font-weight: 700;
       color: var(--light-gray);
       background: rgba(255,255,255,0.08);
+      white-space: nowrap; /* منع تجزئة الكلمات */
     }
 
-    /* تحديد عرض الأعمدة بالنسبة المئوية */
+    /* تحديد عرض الأعمدة */
     .rating-table th:nth-child(1), .rating-table td:nth-child(1) { width: 18%; } /* Rating */
     .rating-table th:nth-child(2), .rating-table td:nth-child(2) { width: 12%; } /* Score */
     .rating-table th:nth-child(3), .rating-table td:nth-child(3) { width: 70%; } /* Description */
 
-    /* مسافة صغيرة جداً بين Score و Description */
+    /* مسافة صغيرة بين Score و Description */
     .rating-table td.score { padding-right: 6px; }
     .rating-table td.desc { padding-left: 6px; }
 
@@ -155,7 +154,7 @@
       box-shadow: 0 14px 40px rgba(0,0,0,0.55);
     }
     .connection-icon { width: 24px; height: 24px; flex: 0 0 24px; }
-    .connection-label { font-size: 0.88rem; } /* تصغير النص قليلاً */
+    .connection-label { font-size: 0.88rem; }
   </style>
 </head>
 <body>
