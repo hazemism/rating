@@ -13,18 +13,8 @@
       --white:#ffffff;
       --glass:rgba(255,255,255,0.95);
     }
-    *{box-sizing:border-box}
-    html,body{height:100%}
-    body{
-      margin:0;
-      font-family:'Segoe UI',system-ui,-apple-system,'Helvetica Neue',Arial;
-      color:var(--white);
-      background:var(--dark);
-      -webkit-font-smoothing:antialiased;
-      -moz-osx-font-smoothing:grayscale;
-      line-height:1.6;
-      padding-bottom:80px;
-    }
+    *{box-sizing:border-box;}
+    html, body{height:100%; margin:0; font-family:'Segoe UI',system-ui,-apple-system,'Helvetica Neue',Arial; color:var(--white); background:var(--dark); line-height:1.6; padding-bottom:80px;}
     body::before{
       content:"";
       position:fixed; inset:0; z-index:-2;
@@ -45,10 +35,7 @@
       padding:0 20px;
     }
 
-    h1,h2{
-      text-align:center;
-      text-shadow:0 2px 20px rgba(0,0,0,0.6);
-    }
+    h1,h2{text-align:center; text-shadow:0 2px 20px rgba(0,0,0,0.6);}
     h1{font-size:2rem;color:var(--white);margin:25px 0;}
     h2{font-size:1.5rem;color:#00ff7f;margin:35px 0 15px;font-weight:700;}
 
@@ -130,17 +117,18 @@
     .connection-label{font-size:0.95rem;}
 
     @media(max-width:700px){
-      h1{font-size:1.5rem}
-      h2{font-size:1.25rem}
+      h1{font-size:1.5rem;}
+      h2{font-size:1.25rem;}
       .rating-table{font-size:0.9rem;}
-      .connections{gap:8px}
-      .connection-btn{padding:8px 12px}
-      .connection-label{font-size:0.88rem}
-      .connection-icon{width:20px;height:20px}
+      .connections{gap:8px;}
+      .connection-btn{padding:8px 12px;}
+      .connection-label{font-size:0.88rem;}
+      .connection-icon{width:20px;height:20px;}
     }
   </style>
 </head>
 <body>
+  <main class="container">
 
     <section class="section">
       <h2>My taste in films:</h2>
