@@ -66,32 +66,43 @@
     .rating-table {
       width: 100%;
       border-collapse: separate;
-      border-spacing: 0 6px; /* مسافة صغيرة بين الصفوف */
-      font-size: 0.88rem; /* تصغير الخط لتناسب الكلمات */
-      table-layout: fixed; /* توزيع الأعمدة بالتساوي */
+      border-spacing: 0 6px;
+      font-size: 0.88rem;
+      table-layout: fixed;
     }
+
     .rating-table th, .rating-table td {
-      padding: 8px 10px;
+      padding: 10px 12px;
       text-align: center;
       background: rgba(255,255,255,0.05);
       border-radius: 8px;
       word-wrap: break-word;
     }
+
     .rating-table th {
       font-weight: 700;
       color: var(--light-gray);
       background: rgba(255,255,255,0.08);
-      white-space: nowrap; /* منع تجزئة الكلمات */
+      white-space: nowrap;
     }
 
-    /* تحديد عرض الأعمدة */
-    .rating-table th:nth-child(1), .rating-table td:nth-child(1) { width: 18%; } /* Rating */
-    .rating-table th:nth-child(2), .rating-table td:nth-child(2) { width: 12%; } /* Score */
-    .rating-table th:nth-child(3), .rating-table td:nth-child(3) { width: 70%; } /* Description */
+    /* توزيع الأعمدة + زيادة المسافة */
+    .rating-table th:nth-child(1),
+    .rating-table td:nth-child(1) {
+      width: 28%;  /* كبرناها لخلق مسافة حقيقية */
+      padding-right: 22px; /* boost spacing */
+    }
 
-    /* مسافة صغيرة بين Score و Description */
-    .rating-table td.score { padding-right: 6px; }
-    .rating-table td.desc { padding-left: 6px; }
+    .rating-table th:nth-child(2),
+    .rating-table td:nth-child(2) {
+      width: 15%;
+      padding-left: 15px; /* مسافة بين العمودين */
+    }
+
+    .rating-table th:nth-child(3),
+    .rating-table td:nth-child(3) {
+      width: 57%;
+    }
 
     .pill {
       display: inline-block;
@@ -103,6 +114,7 @@
       color: var(--black);
       background: var(--glass);
     }
+
     .score { font-weight: 600; color: var(--light-gray); }
     .desc { max-width: 520px; margin: 0 auto; }
 
@@ -128,6 +140,7 @@
       margin: 45px 0 15px;
       font-weight: 700;
     }
+
     .connections {
       display: flex;
       justify-content: center;
@@ -136,6 +149,7 @@
       max-width: 780px;
       margin: 0 auto 40px;
     }
+
     .connection-btn {
       display: inline-flex;
       align-items: center;
@@ -148,15 +162,19 @@
       font-weight: 700;
       box-shadow: 0 8px 30px rgba(0,0,0,0.45), inset 0 1px 0 rgba(255,255,255,0.6);
       border: 1px solid rgba(0,0,0,0.06);
+      transition: 0.2s ease;
     }
+
     .connection-btn:hover {
       transform: translateY(-3px);
       box-shadow: 0 14px 40px rgba(0,0,0,0.55);
     }
+
     .connection-icon { width: 24px; height: 24px; flex: 0 0 24px; }
     .connection-label { font-size: 0.88rem; }
   </style>
 </head>
+
 <body>
 
 <main class="container">
