@@ -68,13 +68,25 @@
       z-index:1;
       padding:0 20px;
     }
-    h1{
+    h1, h2{
       margin:18px 0 22px;
       text-align:center;
       color:var(--white);
-      font-size:2rem;
-      letter-spacing:0.4px;
       text-shadow:0 2px 20px rgba(0,0,0,0.6);
+    }
+    h1{font-size:2rem; letter-spacing:0.4px;}
+    h2{font-size:1.5rem; color:var(--light-gray); margin-bottom:14px; font-weight:700;}
+
+    .section{
+      margin:45px auto 25px;
+      text-align:center;
+    }
+    .section p{
+      font-size:1.05rem;
+      color:rgba(255,255,255,0.92);
+      max-width:800px;
+      margin:0 auto;
+      line-height:1.6;
     }
 
     .rating-table{
@@ -128,18 +140,14 @@
       margin:50px auto 25px;
       text-align:center;
     }
-    .quote-section h2{
-      font-size:1.5rem;
-      color:var(--light-gray);
-      margin-bottom:14px;
-      font-weight:700;
-    }
-    .quote{
+    .quote-section .quote{
       font-style:italic;
       color:rgba(255,255,255,0.95);
       font-size:1.15rem;
       font-weight:600;
-      line-height:1.4;
+      line-height:1.5;
+      max-width:780px;
+      margin:0 auto;
     }
 
     .connections-title{
@@ -179,6 +187,7 @@
 
     @media(max-width:700px){
       h1{font-size:1.5rem}
+      h2{font-size:1.25rem}
       .hero img{max-height:45vh}
       .container{width:95%;margin-top:-8px}
       .rating-table{transform:scale(1)}
@@ -199,6 +208,13 @@
   </header>
 
   <main class="container">
+
+    <section class="section">
+      <h2>My Taste in Movies</h2>
+      <p>My taste in movies leans toward science-based stories that make me think deeply. I like films where the science isn’t just decoration, but the core idea behind the plot. Movies that give me the feeling there’s something huge and hidden beneath the surface.</p>
+      <p>I enjoy films like <strong>Interstellar</strong> and <strong>Dune</strong>, because they build whole worlds on real scientific or philosophical foundations. I also connect with movies like <strong>Arrival</strong>, <strong>Ex Machina</strong>, <strong>Blade Runner 2049</strong>, <strong>Annihilation</strong>, <strong>Solaris</strong>, and <strong>Tenet</strong>—anything that mixes science with deep meaning and leaves me thinking long after it ends.</p>
+    </section>
+
     <h1>My Rating Rules</h1>
 
     <table class="rating-table" aria-label="Rating rules">
@@ -233,7 +249,7 @@
       </a>
 
       <a class="connection-btn" href="https://www.serializd.com/user/scytale" target="_blank">
-        <img class="connection-icon" src="https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/serializd.svg" alt="Serializd">
+        <img class="connection-icon" src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/serializd.svg" alt="Serializd">
         <span class="connection-label">Serializd</span>
       </a>
 
