@@ -44,13 +44,10 @@
     .hero{ width:100%; display:block; overflow:hidden; position:relative; background:var(--black); }
     .hero img{
       width:100%;
+      max-height:65vh;
       height:auto;
       display:block;
-      object-fit: contain;
-      max-height: 65vh;
-      image-rendering: auto;
-      -webkit-backface-visibility: hidden;
-      backface-visibility: hidden;
+      object-fit:cover;
     }
 
     .hero::after{
@@ -73,7 +70,6 @@
           rgba(18,18,18,0.0) 72%,
           rgba(18,18,18,0.15) 94%,
           rgba(18,18,18,1) 100%);
-      mix-blend-mode: normal;
     }
 
     .container{ width:min(1100px, 96%); margin: -6px auto 40px; position:relative; z-index:1; }
@@ -117,10 +113,10 @@
     .connection-btn:hover { transform: translateY(-3px); box-shadow: 0 14px 40px rgba(0,0,0,0.55); }
 
     .connection-icon {
-      width:20px;
-      height:20px;
+      width:24px;
+      height:24px;
       display:inline-block;
-      flex: 0 0 20px;
+      flex: 0 0 24px;
     }
     .connection-label { font-size:0.95rem; line-height:1; }
 
@@ -135,6 +131,7 @@
       .connections { gap:8px; }
       .connection-btn { padding:8px 12px; }
       .connection-label { font-size:0.88rem; }
+      .connection-icon { width:20px; height:20px; }
     }
   </style>
 </head>
@@ -164,7 +161,6 @@
       </tbody>
     </table>
 
-    <!-- Connections section -->
     <nav class="connections" aria-label="Connections">
       <!-- AniList -->
       <a class="connection-btn" href="https://anilist.co/user/scytale/" target="_blank" rel="noopener noreferrer">
@@ -188,6 +184,12 @@
       <a class="connection-btn" href="https://open.spotify.com/user/31n33hhguqc2j2ur53qzjvvtbps4?si=c433bd1962d648ac" target="_blank" rel="noopener noreferrer">
         <img class="connection-icon" src="https://cdn.jsdelivr.net/npm/simple-icons@v8/icons/spotify.svg" alt="Spotify">
         <span class="connection-label">Spotify</span>
+      </a>
+
+      <!-- Discord -->
+      <a class="connection-btn" href="https://discord.com/users/scytl" target="_blank" rel="noopener noreferrer">
+        <img class="connection-icon" src="https://cdn.jsdelivr.net/npm/simple-icons@v8/icons/discord.svg" alt="Discord">
+        <span class="connection-label">Discord</span>
       </a>
     </nav>
 
