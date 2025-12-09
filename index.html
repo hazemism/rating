@@ -26,7 +26,6 @@
       padding-bottom:60px;
     }
 
-    /* blurred background copy (decorative) */
     body::before{
       content: "";
       position:fixed; inset:0; z-index:-2;
@@ -42,13 +41,12 @@
       background: linear-gradient(180deg, rgba(0,0,0,0.35), rgba(0,0,0,0.6));
     }
 
-    /* HERO: show full image without zoom, then softly fade edges */
     .hero{ width:100%; display:block; overflow:hidden; position:relative; background:var(--black); }
     .hero img{
       width:100%;
       height:auto;
       display:block;
-      object-fit: contain;    /* show whole image, no cropping */
+      object-fit: contain;
       max-height: 65vh;
       image-rendering: auto;
       -webkit-backface-visibility: hidden;
@@ -60,7 +58,6 @@
       position: absolute;
       inset: 0;
       pointer-events: none;
-      /* two gradients: vertical and horizontal that are TRANSPARENT in center */
       background:
         linear-gradient(to bottom,
           rgba(18,18,18,1) 0%,
@@ -92,7 +89,6 @@
     .desc{ color: rgba(255,255,255,0.88); max-width:560px; margin:0 auto; }
     .rating-table tbody tr:hover{ background: rgba(255,255,255,0.02); }
 
-    /* Connections section (glass pills with icons) */
     .connections {
       margin: 30px auto 10px;
       max-width: 760px;
@@ -128,7 +124,6 @@
     }
     .connection-label { font-size:0.95rem; line-height:1; }
 
-    /* small screens */
     @media (max-width:700px){
       h1{font-size:1.6rem}
       .hero img{max-height:45vh}
@@ -141,18 +136,14 @@
       .connection-btn { padding:8px 12px; }
       .connection-label { font-size:0.88rem; }
     }
-
-    /* accessibility focus */
-    .connection-btn:focus { outline: 3px solid rgba(255,255,255,0.12); outline-offset:3px; }
   </style>
 </head>
 <body>
   <header class="hero">
-    <!-- تأكد أن ملف banner.jpg موجود في نفس الفولدر -->
     <img src="banner.jpg" alt="Banner Image">
   </header>
 
-  <main class="container" role="main">
+  <main class="container">
     <h1>My Rating Rules</h1>
 
     <table class="rating-table" aria-label="Rating rules">
@@ -175,57 +166,29 @@
 
     <!-- Connections section -->
     <nav class="connections" aria-label="Connections">
-      <!-- AniList (inline simplified SVG logo) -->
-      <a class="connection-btn" href="https://anilist.co/user/scytale/" target="_blank" rel="noopener noreferrer" aria-label="AniList — scytale">
-        <span class="connection-icon" aria-hidden="true">
-          <!-- simple anilist mark (adapted) -->
-          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-hidden="true">
-            <path d="M3 12 L12 3 L21 12" stroke="#0F172A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
-            <path d="M5 21 H19" stroke="#0F172A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-        </span>
+      <!-- AniList -->
+      <a class="connection-btn" href="https://anilist.co/user/scytale/" target="_blank" rel="noopener noreferrer">
+        <img class="connection-icon" src="https://cdn.jsdelivr.net/npm/simple-icons@v8/icons/anilist.svg" alt="AniList">
         <span class="connection-label">AniList</span>
       </a>
 
-      <!-- Serializd (custom SVG icon approximating official mark — corrected) -->
-      <a class="connection-btn" href="https://www.serializd.com/user/scytale" target="_blank" rel="noopener noreferrer" aria-label="Serializd — scytale">
-        <span class="connection-icon" aria-hidden="true">
-          <!-- serializd mark: stylized stacked lines / list icon (neutral, crisp) -->
-          <svg viewBox="0 0 24 24" width="20" height="20" xmlns="http://www.w3.org/2000/svg" role="img" aria-hidden="true">
-            <rect x="3" y="5" width="18" height="3" rx="0.8" fill="#0F172A"/>
-            <rect x="3" y="10.5" width="12" height="3" rx="0.8" fill="#0F172A"/>
-            <rect x="3" y="16" width="8" height="3" rx="0.8" fill="#0F172A"/>
-          </svg>
-        </span>
+      <!-- Serializd (الأيقونة القديمة) -->
+      <a class="connection-btn" href="https://www.serializd.com/user/scytale" target="_blank" rel="noopener noreferrer">
+        <img class="connection-icon" src="https://cdn.jsdelivr.net/npm/simple-icons@v8/icons/serializd.svg" alt="Serializd">
         <span class="connection-label">Serializd</span>
       </a>
 
-      <!-- Letterboxd (inline film/box style icon) -->
-      <a class="connection-btn" href="https://boxd.it/cuPZX" target="_blank" rel="noopener noreferrer" aria-label="Letterboxd — scytale">
-        <span class="connection-icon" aria-hidden="true">
-          <!-- letterboxd-ish film frame icon -->
-          <svg viewBox="0 0 24 24" width="20" height="20" xmlns="http://www.w3.org/2000/svg" role="img" aria-hidden="true">
-            <rect x="2.5" y="5" width="19" height="14" rx="1.6" stroke="#0F172A" stroke-width="1.2" fill="none"/>
-            <circle cx="7.5" cy="9" r="0.9" fill="#0F172A"/>
-            <circle cx="7.5" cy="15" r="0.9" fill="#0F172A"/>
-            <circle cx="16.5" cy="9" r="0.9" fill="#0F172A"/>
-            <circle cx="16.5" cy="15" r="0.9" fill="#0F172A"/>
-          </svg>
-        </span>
+      <!-- Letterboxd -->
+      <a class="connection-btn" href="https://boxd.it/cuPZX" target="_blank" rel="noopener noreferrer">
+        <img class="connection-icon" src="https://cdn.jsdelivr.net/npm/simple-icons@v8/icons/letterboxd.svg" alt="Letterboxd">
         <span class="connection-label">Letterboxd</span>
       </a>
 
-      <!-- Example: Github (optional, uncomment if needed) -->
-      <!--
-      <a class="connection-btn" href="https://github.com/yourusername" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
-        <span class="connection-icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24" width="20" height="20" fill="#0F172A" xmlns="http://www.w3.org/2000/svg" role="img" aria-hidden="true">
-            <path d="M12 .5C5.73.5.75 5.48.75 11.75c0 4.94 3.2 9.13 7.64 10.61.56.1.76-.24.76-.54 0-.27-.01-1-.02-1.95-3.11.68-3.77-1.5-3.77-1.5-.51-1.29-1.25-1.63-1.25-1.63-1.02-.7.08-.69.08-.69 1.13.08 1.73 1.16 1.73 1.16 1 .17 1.58.82 1.96 1.4 1.08 1.84 2.83 1.31 3.52 1 .11-.78.4-1.31.72-1.61-2.48-.28-5.09-1.23-5.09-5.5 0-1.21.43-2.2 1.14-2.98-.12-.28-.5-1.4.11-2.93 0 0 .92-.3 3.02 1.14a10.5 10.5 0 0 1 5.5 0c2.1-1.44 3.02-1.14 3.02-1.14.61 1.53.23 2.65.11 2.93.71.78 1.14 1.77 1.14 2.98 0 4.28-2.62 5.22-5.11 5.5.41.36.77 1.08.77 2.17 0 1.57-.01 2.83-.01 3.22 0 .3.19.65.77.54 4.44-1.49 7.64-5.68 7.64-10.61C23.25 5.48 18.27.5 12 .5z"/>
-          </svg>
-        </span>
-        <span class="connection-label">GitHub</span>
+      <!-- Spotify -->
+      <a class="connection-btn" href="https://open.spotify.com/user/31n33hhguqc2j2ur53qzjvvtbps4?si=c433bd1962d648ac" target="_blank" rel="noopener noreferrer">
+        <img class="connection-icon" src="https://cdn.jsdelivr.net/npm/simple-icons@v8/icons/spotify.svg" alt="Spotify">
+        <span class="connection-label">Spotify</span>
       </a>
-      -->
     </nav>
 
   </main>
