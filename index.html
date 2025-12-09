@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>My Rating Rules</title>
+  <title>My Rating Rules + Connections</title>
   <style>
     :root{
       --black: #000000;
@@ -25,7 +25,7 @@
       padding-bottom:60px;
     }
 
-    /* blurred background copy (decorative) */
+    /* blurred background */
     body::before{
       content: "";
       position:fixed; inset:0; z-index:-2;
@@ -41,27 +41,22 @@
       background: linear-gradient(180deg, rgba(0,0,0,0.35), rgba(0,0,0,0.6));
     }
 
-    /* HERO: show full image without zoom, then softly fade edges */
     .hero{ width:100%; display:block; overflow:hidden; position:relative; background:var(--black); }
     .hero img{
       width:100%;
       height:auto;
       display:block;
-      object-fit: contain;    /* show whole image, no cropping */
+      object-fit: contain;
       max-height: 65vh;
       image-rendering: auto;
       -webkit-backface-visibility: hidden;
       backface-visibility: hidden;
     }
-
-    /* IMPORTANT: soft-edge fade that keeps center visible.
-       Edges darken while center stays transparent so image is clearly seen. */
     .hero::after{
       content: "";
       position: absolute;
       inset: 0;
       pointer-events: none;
-      /* two gradients: vertical and horizontal that are TRANSPARENT in center */
       background:
         linear-gradient(to bottom,
           rgba(18,18,18,1) 0%,
@@ -83,15 +78,43 @@
     .container{ width:min(1100px, 96%); margin: -6px auto 40px; position:relative; z-index:1; }
     h1{ margin:18px 0 22px; text-align:center; color:var(--white); font-size:2.2rem; letter-spacing:0.4px; text-shadow:0 2px 20px rgba(0,0,0,0.6); }
 
+    /* Rating table */
     .rating-table{ width:100%; border-collapse:separate; border-spacing:0; background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01)); border-radius:10px; overflow:hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.6); border: 1px solid rgba(217,217,217,0.06); }
     .rating-table thead th{ background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(0,0,0,0.12)); color: #d9d9d9; text-transform:uppercase; font-size:0.85rem; padding:14px 16px; letter-spacing:1px; border-bottom:1px solid rgba(255,255,255,0.03); }
     .rating-table tbody td{ padding:14px 16px; text-align:center; color:var(--white); font-size:1rem; border-bottom:1px solid rgba(255,255,255,0.02); }
     .rating-table tbody tr:last-child td{ border-bottom: none }
-
     .pill{ display:inline-block; min-width:62px; padding:8px 14px; border-radius:999px; font-weight:700; letter-spacing:0.6px; color:var(--black); background: rgba(255,255,255,0.95); border: 1px solid rgba(255,255,255,0.95); box-shadow: 0 6px 26px rgba(0,0,0,0.6), inset 0 1px 0 rgba(255,255,255,0.25); backdrop-filter: blur(8px) saturate(120%); -webkit-backdrop-filter: blur(8px) saturate(120%); }
     .score{ color:#d9d9d9; font-weight:600; }
     .desc{ color: rgba(255,255,255,0.88); max-width:560px; margin:0 auto; }
     .rating-table tbody tr:hover{ background: rgba(255,255,255,0.02); }
+
+    /* Connections section */
+    .connections {
+      margin: 40px auto;
+      max-width: 600px;
+      text-align: center;
+    }
+    .connections a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      margin: 6px 10px;
+      padding: 12px 16px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.95);
+      color: var(--black);
+      text-decoration: none;
+      font-weight: 600;
+      transition: background 0.2s;
+      gap: 8px;
+    }
+    .connections a img{
+      width:20px;
+      height:20px;
+    }
+    .connections a:hover{
+      background: rgba(255,255,255,1);
+    }
 
     @media (max-width:700px){
       h1{font-size:1.6rem}
@@ -106,7 +129,6 @@
 </head>
 <body>
   <header class="hero">
-    <!-- تأكد أن اسم الملف صحيح وموجود: 'banner.jpg' -->
     <img src="banner.jpg" alt="Banner Image">
   </header>
 
@@ -130,6 +152,20 @@
         <tr><td data-label="Rating"><span class="pill">01</span></td><td data-label="Score"><span class="score">0.5</span></td><td data-label="Description"><div class="desc">Complete trash or I hate it</div></td></tr>
       </tbody>
     </table>
+
+    <!-- Connections section -->
+    <div class="connections">
+      <a href="https://anilist.co/user/scytale/" target="_blank">
+        <img src="https://cdn.jsdelivr.net/npm/simple-icons@v8/icons/anilist.svg" alt="AniList">AniList
+      </a>
+      <a href="https://www.serializd.com/user/scytale" target="_blank">
+        <img src="https://cdn.jsdelivr.net/npm/simple-icons@v8/icons/serializd.svg" alt="Serializd">Serializd
+      </a>
+      <a href="https://boxd.it/cuPZX" target="_blank">
+        <img src="https://cdn.jsdelivr.net/npm/simple-icons@v8/icons/letterboxd.svg" alt="Letterboxd">Letterboxd
+      </a>
+    </div>
+
   </main>
 </body>
 </html>
