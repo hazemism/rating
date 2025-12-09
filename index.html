@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>My Rating Rules + Connections</title>
+  <title>My Movie Bio</title>
   <style>
     :root{
       --black:#000000;
@@ -22,10 +22,9 @@
       background:var(--dark);
       -webkit-font-smoothing:antialiased;
       -moz-osx-font-smoothing:grayscale;
-      line-height:1.45;
+      line-height:1.6;
       padding-bottom:80px;
     }
-
     body::before{
       content:"";
       position:fixed; inset:0; z-index:-2;
@@ -38,29 +37,6 @@
       background:linear-gradient(180deg,rgba(0,0,0,0.35),rgba(0,0,0,0.6));
     }
 
-    .hero{
-      width:100%;
-      display:block;
-      overflow:hidden;
-      position:relative;
-      background:var(--black);
-    }
-    .hero img{
-      width:100%;
-      max-height:60vh;
-      height:auto;
-      display:block;
-      object-fit:cover;
-      image-rendering:high-quality;
-    }
-    .hero::after{
-      content:"";
-      position:absolute;
-      inset:0;
-      pointer-events:none;
-      background:linear-gradient(to bottom,rgba(18,18,18,1) 0%,rgba(18,18,18,0.15) 8%,rgba(18,18,18,0.0) 35%,rgba(18,18,18,0.0) 65%,rgba(18,18,18,0.15) 92%,rgba(18,18,18,1) 100%);
-    }
-
     .container{
       width:min(950px,90%);
       margin:-10px auto 40px;
@@ -68,84 +44,55 @@
       z-index:1;
       padding:0 20px;
     }
-    h1, h2{
-      margin:18px 0 22px;
+
+    h1,h2{
       text-align:center;
-      color:var(--white);
       text-shadow:0 2px 20px rgba(0,0,0,0.6);
     }
-    h1{font-size:2rem; letter-spacing:0.4px;}
-    h2{font-size:1.5rem; color:var(--light-gray); margin-bottom:14px; font-weight:700;}
+    h1{font-size:2rem;color:var(--white);margin:25px 0;}
+    h2{font-size:1.5rem;color:#00ff7f;margin:35px 0 15px;font-weight:700;}
 
-    .section{
-      margin:45px auto 25px;
-      text-align:center;
-    }
     .section p{
+      max-width:800px;
+      margin:0 auto 15px;
       font-size:1.05rem;
       color:rgba(255,255,255,0.92);
-      max-width:800px;
-      margin:0 auto;
-      line-height:1.6;
     }
 
     .rating-table{
       width:100%;
-      border-collapse:separate;
-      border-spacing:0;
-      background:linear-gradient(180deg,rgba(255,255,255,0.02),rgba(255,255,255,0.01));
-      border-radius:10px;
-      overflow:hidden;
-      box-shadow:0 10px 30px rgba(0,0,0,0.6);
-      border:1px solid rgba(217,217,217,0.06);
-      transform:scale(0.95);
-    }
-    .rating-table thead th{
-      background:linear-gradient(180deg,rgba(255,255,255,0.02),rgba(0,0,0,0.12));
-      color:#d9d9d9;
-      text-transform:uppercase;
-      font-size:0.85rem;
-      padding:14px 16px;
-      letter-spacing:1px;
-      border-bottom:1px solid rgba(255,255,255,0.03);
-    }
-    .rating-table tbody td{
-      padding:12px 14px;
-      text-align:center;
-      color:var(--white);
+      border-collapse:collapse;
+      margin:25px auto;
       font-size:0.95rem;
-      border-bottom:1px solid rgba(255,255,255,0.02);
     }
-    .rating-table tbody tr:last-child td{border-bottom:none}
-
+    .rating-table th, .rating-table td{
+      padding:10px 12px;
+      border:1px solid rgba(255,255,255,0.15);
+      text-align:center;
+    }
+    .rating-table th{font-weight:700;color:var(--light-gray);}
     .pill{
       display:inline-block;
       min-width:58px;
-      padding:7px 12px;
+      padding:6px 12px;
       border-radius:999px;
       font-weight:700;
-      letter-spacing:0.6px;
+      letter-spacing:0.5px;
       color:var(--black);
       background:var(--glass);
-      border:1px solid rgba(255,255,255,0.95);
-      box-shadow:0 6px 26px rgba(0,0,0,0.6),inset 0 1px 0 rgba(255,255,255,0.25);
-      backdrop-filter:blur(8px) saturate(120%);
-      -webkit-backdrop-filter:blur(8px) saturate(120%);
     }
-    .score{color:#d9d9d9;font-weight:600}
-    .desc{color:rgba(255,255,255,0.88);max-width:520px;margin:0 auto}
-    .rating-table tbody tr:hover{background:rgba(255,255,255,0.02)}
+    .score{font-weight:600;color:var(--light-gray);}
+    .desc{max-width:520px;margin:0 auto;}
 
     .quote-section{
-      margin:50px auto 25px;
       text-align:center;
+      margin:50px auto 25px;
     }
     .quote-section .quote{
       font-style:italic;
       color:rgba(255,255,255,0.95);
       font-size:1.15rem;
       font-weight:600;
-      line-height:1.5;
       max-width:780px;
       margin:0 auto;
     }
@@ -158,17 +105,17 @@
       font-weight:700;
     }
     .connections{
-      margin:0 auto;
-      max-width:760px;
       display:flex;
-      gap:10px;
       justify-content:center;
       flex-wrap:wrap;
+      gap:10px;
+      max-width:780px;
+      margin:0 auto 40px;
     }
     .connection-btn{
       display:inline-flex;
       align-items:center;
-      gap:10px;
+      gap:8px;
       padding:10px 16px;
       border-radius:999px;
       background:linear-gradient(180deg,rgba(255,255,255,0.95),rgba(255,255,255,0.92));
@@ -177,24 +124,15 @@
       font-weight:700;
       box-shadow:0 8px 30px rgba(0,0,0,0.45),inset 0 1px 0 rgba(255,255,255,0.6);
       border:1px solid rgba(0,0,0,0.06);
-      transition:transform .12s ease,box-shadow .12s ease;
-      -webkit-backdrop-filter:blur(6px) saturate(120%);
-      backdrop-filter:blur(6px) saturate(120%);
     }
-    .connection-btn:hover{transform:translateY(-3px);box-shadow:0 14px 40px rgba(0,0,0,0.55)}
-    .connection-icon{width:24px;height:24px;display:inline-block;flex:0 0 24px}
-    .connection-label{font-size:0.95rem;line-height:1}
+    .connection-btn:hover{transform:translateY(-3px);box-shadow:0 14px 40px rgba(0,0,0,0.55);}
+    .connection-icon{width:24px;height:24px;flex:0 0 24px;}
+    .connection-label{font-size:0.95rem;}
 
     @media(max-width:700px){
       h1{font-size:1.5rem}
       h2{font-size:1.25rem}
-      .hero img{max-height:45vh}
-      .container{width:95%;margin-top:-8px}
-      .rating-table{transform:scale(1)}
-      .rating-table thead{display:none}
-      .rating-table tbody td{display:block;text-align:right;padding-left:48%;position:relative}
-      .rating-table tbody td::before{content:attr(data-label);position:absolute;left:16px;top:14px;font-weight:700;text-transform:uppercase;color:#d9d9d9}
-      .pill{min-width:48px;padding:6px 10px}
+      .rating-table{font-size:0.9rem;}
       .connections{gap:8px}
       .connection-btn{padding:8px 12px}
       .connection-label{font-size:0.88rem}
@@ -203,37 +141,38 @@
   </style>
 </head>
 <body>
-  <header class="hero">
-    <img src="banner.jpg" alt="Banner Image">
-  </header>
 
   <main class="container">
-
     <section class="section">
-      <h2>My Taste in Movies</h2>
-      <p>My taste in movies leans toward science-based stories that make me think deeply. I like films where the science isn’t just decoration, but the core idea behind the plot. Movies that give me the feeling there’s something huge and hidden beneath the surface.</p>
-      <p>I enjoy films like <strong>Interstellar</strong> and <strong>Dune</strong>, because they build whole worlds on real scientific or philosophical foundations. I also connect with movies like <strong>Arrival</strong>, <strong>Ex Machina</strong>, <strong>Blade Runner 2049</strong>, <strong>Annihilation</strong>, <strong>Solaris</strong>, and <strong>Tenet</strong>—anything that mixes science with deep meaning and leaves me thinking long after it ends.</p>
+      <h1>My Life: 🍣 Eat 💪 Exercise 🤖 Code 🎧 Music 🍿 Movies 😴 Sleep</h1>
+      <p>I’m mostly awake at night and happiest when it rains. Addicted to music and movies, always chasing that perfect mood. Not into social media, but I love anything that’s open, free, and progressive.</p>
     </section>
 
-    <h1>My Rating Rules</h1>
+    <section class="section">
+      <h2>My taste in films:</h2>
+      <p>I’m drawn towards <em>realistic</em> films that are <em>visually stunning, emotionally charged</em>, and <em>mind-blowing</em> in their storytelling. I love the depiction of <em>loneliness</em> in cinema, the beauty of <em>romance</em> and <em>eroticism</em>, and <em>narratives</em> that challenge how I see the world.</p>
+    </section>
 
-    <table class="rating-table" aria-label="Rating rules">
-      <thead>
-        <tr><th>Rating</th><th>Score</th><th>Description</th></tr>
-      </thead>
-      <tbody>
-        <tr><td data-label="Rating"><span class="pill">10</span></td><td data-label="Score"><span class="score">5.0</span></td><td data-label="Description"><div class="desc">Perfect</div></td></tr>
-        <tr><td data-label="Rating"><span class="pill">09</span></td><td data-label="Score"><span class="score">4.5</span></td><td data-label="Description"><div class="desc">Perfect, but with one flaw</div></td></tr>
-        <tr><td data-label="Rating"><span class="pill">08</span></td><td data-label="Score"><span class="score">4.0</span></td><td data-label="Description"><div class="desc">Perfect, but with few flaws</div></td></tr>
-        <tr><td data-label="Rating"><span class="pill">07</span></td><td data-label="Score"><span class="score">3.5</span></td><td data-label="Description"><div class="desc">Good movie, but not perfect</div></td></tr>
-        <tr><td data-label="Rating"><span class="pill">06</span></td><td data-label="Score"><span class="score">3.0</span></td><td data-label="Description"><div class="desc">Okay, didn’t love it, but don’t regret watching it</div></td></tr>
-        <tr><td data-label="Rating"><span class="pill">05</span></td><td data-label="Score"><span class="score">2.5</span></td><td data-label="Description"><div class="desc">Watch it or not — it didn’t make an impact but also wasn’t bad</div></td></tr>
-        <tr><td data-label="Rating"><span class="pill">04</span></td><td data-label="Score"><span class="score">2.0</span></td><td data-label="Description"><div class="desc">Regret watching it — bad but not trash</div></td></tr>
-        <tr><td data-label="Rating"><span class="pill">03</span></td><td data-label="Score"><span class="score">1.5</span></td><td data-label="Description"><div class="desc">Trash, but with a few positive aspects</div></td></tr>
-        <tr><td data-label="Rating"><span class="pill">02</span></td><td data-label="Score"><span class="score">1.0</span></td><td data-label="Description"><div class="desc">Trash, but with one positive aspect</div></td></tr>
-        <tr><td data-label="Rating"><span class="pill">01</span></td><td data-label="Score"><span class="score">0.5</span></td><td data-label="Description"><div class="desc">Complete trash or I hate it</div></td></tr>
-      </tbody>
-    </table>
+    <section class="section">
+      <h2>My fucked up rating system</h2>
+      <table class="rating-table">
+        <thead>
+          <tr><th>Rating</th><th>Score</th><th>Description</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><span class="pill">10</span></td><td class="score">5.0</td><td class="desc">Perfect</td></tr>
+          <tr><td><span class="pill">09</span></td><td class="score">4.5</td><td class="desc">Perfect, but with a flaw</td></tr>
+          <tr><td><span class="pill">08</span></td><td class="score">4.0</td><td class="desc">Perfect, but with few flaws</td></tr>
+          <tr><td><span class="pill">07</span></td><td class="score">3.5</td><td class="desc">Good, but not perfect</td></tr>
+          <tr><td><span class="pill">06</span></td><td class="score">3.0</td><td class="desc">Okay, didn’t love it, but don’t regret watching it</td></tr>
+          <tr><td><span class="pill">05</span></td><td class="score">2.5</td><td class="desc">Watch it or not — it didn’t make any impact but also wasn’t bad</td></tr>
+          <tr><td><span class="pill">04</span></td><td class="score">2.0</td><td class="desc">Regret watching it — bad but not trash</td></tr>
+          <tr><td><span class="pill">03</span></td><td class="score">1.5</td><td class="desc">Trash, but with a few positive aspects</td></tr>
+          <tr><td><span class="pill">02</span></td><td class="score">1.0</td><td class="desc">Trash, but with one positive aspect</td></tr>
+          <tr><td><span class="pill">01</span></td><td class="score">0.5</td><td class="desc">Complete trash or I hate it</td></tr>
+        </tbody>
+      </table>
+    </section>
 
     <section class="quote-section">
       <h2>My Favorite Quotes:</h2>
@@ -241,28 +180,23 @@
     </section>
 
     <h2 class="connections-title">My Connections</h2>
-
     <nav class="connections" aria-label="Connections">
       <a class="connection-btn" href="https://anilist.co/user/scytale/" target="_blank">
         <img class="connection-icon" src="https://cdn.jsdelivr.net/npm/simple-icons@v8/icons/anilist.svg" alt="AniList">
         <span class="connection-label">AniList</span>
       </a>
-
       <a class="connection-btn" href="https://www.serializd.com/user/scytale" target="_blank">
         <img class="connection-icon" src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/serializd.svg" alt="Serializd">
         <span class="connection-label">Serializd</span>
       </a>
-
       <a class="connection-btn" href="https://boxd.it/cuPZX" target="_blank">
         <img class="connection-icon" src="https://cdn.jsdelivr.net/npm/simple-icons@v8/icons/letterboxd.svg" alt="Letterboxd">
         <span class="connection-label">Letterboxd</span>
       </a>
-
       <a class="connection-btn" href="https://open.spotify.com/user/31n33hhguqc2j2ur53qzjvvtbps4?si=c433bd1962d648ac" target="_blank">
         <img class="connection-icon" src="https://cdn.jsdelivr.net/npm/simple-icons@v8/icons/spotify.svg" alt="Spotify">
         <span class="connection-label">Spotify</span>
       </a>
-
       <a class="connection-btn" href="https://discord.com/users/scytl" target="_blank">
         <img class="connection-icon" src="https://cdn.jsdelivr.net/npm/simple-icons@v8/icons/discord.svg" alt="Discord">
         <span class="connection-label">Discord</span>
