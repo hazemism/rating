@@ -11,10 +11,20 @@
       --surface:#121214;
       --light-gray:#d9d9d9;
       --white:#ffffff;
-      --glass:rgba(255,255,255,0.95);
+      --glass:rgba(255,255,255,0.9);
     }
-    *{box-sizing:border-box;}
-    html, body{height:100%; margin:0; font-family:'Segoe UI',system-ui,-apple-system,'Helvetica Neue',Arial; color:var(--white); background:var(--dark); line-height:1.6; padding-bottom:80px;}
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family:'Segoe UI',system-ui,-apple-system,'Helvetica Neue',Arial;
+      color:var(--white);
+      background:var(--dark);
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.6;
+      padding-bottom:80px;
+    }
     body::before{
       content:"";
       position:fixed; inset:0; z-index:-2;
@@ -29,15 +39,18 @@
 
     .container{
       width:min(950px,90%);
-      margin:-10px auto 40px;
+      margin:0 auto 40px;
       position:relative;
       z-index:1;
       padding:0 20px;
     }
 
-    h1,h2{text-align:center; text-shadow:0 2px 20px rgba(0,0,0,0.6);}
+    h1,h2{
+      text-align:center;
+      text-shadow:0 2px 20px rgba(0,0,0,0.6);
+    }
     h1{font-size:2rem;color:var(--white);margin:25px 0;}
-    h2{font-size:1.5rem;color:#00ff7f;margin:35px 0 15px;font-weight:700;}
+    h2{font-size:1.5rem;color:var(--white);margin:35px 0 15px;font-weight:700;}
 
     .section p{
       max-width:800px;
@@ -48,16 +61,22 @@
 
     .rating-table{
       width:100%;
-      border-collapse:collapse;
+      border-collapse:separate;
+      border-spacing:0 8px;
       margin:25px auto;
       font-size:0.95rem;
     }
     .rating-table th, .rating-table td{
       padding:10px 12px;
-      border:1px solid rgba(255,255,255,0.15);
       text-align:center;
+      background:rgba(255,255,255,0.05);
+      border-radius:8px;
     }
-    .rating-table th{font-weight:700;color:var(--light-gray);}
+    .rating-table th{
+      font-weight:700;
+      color:var(--light-gray);
+      background:rgba(255,255,255,0.08);
+    }
     .pill{
       display:inline-block;
       min-width:58px;
@@ -117,26 +136,31 @@
     .connection-label{font-size:0.95rem;}
 
     @media(max-width:700px){
-      h1{font-size:1.5rem;}
-      h2{font-size:1.25rem;}
+      h1{font-size:1.5rem}
+      h2{font-size:1.25rem}
       .rating-table{font-size:0.9rem;}
-      .connections{gap:8px;}
-      .connection-btn{padding:8px 12px;}
-      .connection-label{font-size:0.88rem;}
-      .connection-icon{width:20px;height:20px;}
+      .connections{gap:8px}
+      .connection-btn{padding:8px 12px}
+      .connection-label{font-size:0.88rem}
+      .connection-icon{width:20px;height:20px}
     }
   </style>
 </head>
 <body>
-  <main class="container">
 
+  <main class="container">
     <section class="section">
-      <h2>My taste in films:</h2>
-      <p>taste in movies leans toward science-based stories that make me think deeply. I like films where the science isn’t just decoration, but the core idea behind the plot. Movies that give me the feeling there’s something huge and hidden beneath the surface.</p>
+      <h1>My Life: 🍣 Eat 💪 Exercise 🤖 Code 🎧 Music 🍿 Movies 😴 Sleep</h1>
+      <p>I’m mostly awake at night and happiest when it rains. Addicted to music and movies, always chasing that perfect mood. Not into social media, but I love anything that’s open, free, and progressive.</p>
     </section>
 
     <section class="section">
-      <h2>My fucked up rating system</h2>
+      <h2>My taste in films:</h2>
+      <p>I’m drawn towards <em>realistic</em> films that are <em>visually stunning, emotionally charged</em>, and <em>mind-blowing</em> in their storytelling. I love the depiction of <em>loneliness</em> in cinema, the beauty of <em>romance</em> and <em>eroticism</em>, and <em>narratives</em> that challenge how I see the world.</p>
+    </section>
+
+    <section class="section">
+      <h2>My rating system</h2>
       <table class="rating-table">
         <thead>
           <tr><th>Rating</th><th>Score</th><th>Description</th></tr>
@@ -158,28 +182,28 @@
 
     <section class="quote-section">
       <h2>My Favorite Quotes:</h2>
-      <p class="quote">“Okay, hold on. Don't shoot. Do you see where you're going? Mhm. Okay, now let's worry about how you get there.” — Hawkeye, Avengers: Endgame</p>
+      <p class="quote">“Do you see where you're going? now let's worry about how you get there.” — Hawkeye, Avengers: Endgame</p>
     </section>
 
     <h2 class="connections-title">My Connections</h2>
     <nav class="connections" aria-label="Connections">
-      <a class="connection-btn" href="https://anilist.co/user/scytale/" target="_blank">
+      <a class="connection-btn" href="https://anilist.co/user/scytale/" target="_blank" rel="noopener noreferrer">
         <img class="connection-icon" src="https://cdn.jsdelivr.net/npm/simple-icons@v8/icons/anilist.svg" alt="AniList">
         <span class="connection-label">AniList</span>
       </a>
-      <a class="connection-btn" href="https://www.serializd.com/user/scytale" target="_blank">
+      <a class="connection-btn" href="https://www.serializd.com/user/scytale" target="_blank" rel="noopener noreferrer">
         <img class="connection-icon" src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/serializd.svg" alt="Serializd">
         <span class="connection-label">Serializd</span>
       </a>
-      <a class="connection-btn" href="https://boxd.it/cuPZX" target="_blank">
+      <a class="connection-btn" href="https://boxd.it/cuPZX" target="_blank" rel="noopener noreferrer">
         <img class="connection-icon" src="https://cdn.jsdelivr.net/npm/simple-icons@v8/icons/letterboxd.svg" alt="Letterboxd">
         <span class="connection-label">Letterboxd</span>
       </a>
-      <a class="connection-btn" href="https://open.spotify.com/user/31n33hhguqc2j2ur53qzjvvtbps4?si=c433bd1962d648ac" target="_blank">
+      <a class="connection-btn" href="https://open.spotify.com/user/31n33hhguqc2j2ur53qzjvvtbps4?si=c433bd1962d648ac" target="_blank" rel="noopener noreferrer">
         <img class="connection-icon" src="https://cdn.jsdelivr.net/npm/simple-icons@v8/icons/spotify.svg" alt="Spotify">
         <span class="connection-label">Spotify</span>
       </a>
-      <a class="connection-btn" href="https://discord.com/users/scytl" target="_blank">
+      <a class="connection-btn" href="https://discord.com/users/scytl" target="_blank" rel="noopener noreferrer">
         <img class="connection-icon" src="https://cdn.jsdelivr.net/npm/simple-icons@v8/icons/discord.svg" alt="Discord">
         <span class="connection-label">Discord</span>
       </a>
