@@ -4,6 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>My Movie Bio</title>
+
   <style>
     :root{
       --black:#000000;
@@ -25,6 +26,7 @@
       line-height: 1.6;
       padding-bottom: 80px;
     }
+
     body::before {
       content: "";
       position: fixed; inset: 0; z-index: -2;
@@ -62,12 +64,12 @@
       color: rgba(255,255,255,0.92);
     }
 
-    /* جدول التقييم */
+    /* جدول التقييم بعد التعديل */
     .rating-table {
       width: 100%;
       border-collapse: separate;
-      border-spacing: 0 6px;
-      font-size: 0.88rem;
+      border-spacing: 0 10px;
+      font-size: 0.85rem;
       table-layout: fixed;
     }
 
@@ -75,54 +77,64 @@
       padding: 10px 12px;
       text-align: center;
       background: rgba(255,255,255,0.05);
-      border-radius: 8px;
+      border-radius: 10px;
       word-wrap: break-word;
     }
 
     .rating-table th {
       font-weight: 700;
       color: var(--light-gray);
-      background: rgba(255,255,255,0.08);
+      background: rgba(255,255,255,0.1);
       white-space: nowrap;
     }
 
-    /* توزيع الأعمدة + زيادة المسافة */
+    /* توزيع الأعمدة وضبط المسافات */
     .rating-table th:nth-child(1),
     .rating-table td:nth-child(1) {
-      width: 28%;  /* كبرناها لخلق مسافة حقيقية */
-      padding-right: 22px; /* boost spacing */
+      width: 90px;
+      padding-right: 20px;
     }
 
     .rating-table th:nth-child(2),
     .rating-table td:nth-child(2) {
-      width: 15%;
-      padding-left: 15px; /* مسافة بين العمودين */
+      width: 70px;
+      padding-left: 20px;
     }
 
     .rating-table th:nth-child(3),
     .rating-table td:nth-child(3) {
-      width: 57%;
+      width: auto;
     }
 
     .pill {
       display: inline-block;
-      min-width: 50px;
+      min-width: 42px;
       padding: 6px 10px;
       border-radius: 999px;
       font-weight: 700;
       letter-spacing: 0.5px;
       color: var(--black);
       background: var(--glass);
+      font-size: 0.9rem;
     }
 
-    .score { font-weight: 600; color: var(--light-gray); }
-    .desc { max-width: 520px; margin: 0 auto; }
+    .score { 
+      font-weight: 600; 
+      color: var(--light-gray); 
+      font-size: 0.9rem; 
+    }
+
+    .desc {
+      max-width: 450px;
+      margin: 0 auto;
+    }
 
     /* الاقتباسات */
     .quote-section {
       text-align: center;
       margin: 50px auto 25px;
     }
+
     .quote-section .quote {
       font-style: italic;
       color: rgba(255,255,255,0.95);
@@ -179,15 +191,18 @@
 
 <main class="container">
 
-  <!-- ذوق الأفلام -->
   <section class="section">
     <h2>My taste in movies:</h2>
-    <p>My taste in movies leans toward science-based stories that make me think deeply. I like films where the science isn’t just decoration, but the core idea behind the plot. Movies that give me the feeling there’s something huge and hidden beneath the surface.</p>
+    <p>
+      My taste in movies leans toward science-based stories that make me think deeply.
+      I like films where the science isn’t just decoration, but the core idea behind the plot.
+      Movies that give me the feeling there’s something huge and hidden beneath the surface.
+    </p>
   </section>
 
-  <!-- جدول التقييم -->
   <section class="section">
     <h2>My rating system</h2>
+
     <table class="rating-table">
       <thead>
         <tr><th>Rating</th><th>Score</th><th>Description</th></tr>
@@ -207,37 +222,26 @@
     </table>
   </section>
 
-  <!-- الاقتباسات -->
   <section class="quote-section">
     <h2>My Favorite Quotes:</h2>
     <p class="quote">“Do you see where you're going? now let's worry about how you get there.” — Hawkeye, Avengers: Endgame</p>
   </section>
 
-  <!-- روابط الاتصال -->
   <h2 class="connections-title">My Connections</h2>
+
   <nav class="connections" aria-label="Connections">
-    <a class="connection-btn" href="https://anilist.co/user/scytale/" target="_blank" rel="noopener noreferrer">
-      <img class="connection-icon" src="https://cdn.jsdelivr.net/npm/simple-icons@v8/icons/anilist.svg" alt="AniList">
-      <span class="connection-label">AniList</span>
-    </a>
-    <a class="connection-btn" href="https://www.serializd.com/user/scytale" target="_blank" rel="noopener noreferrer">
-      <img class="connection-icon" src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/serializd.svg" alt="Serializd">
-      <span class="connection-label">Serializd</span>
-    </a>
-    <a class="connection-btn" href="https://boxd.it/cuPZX" target="_blank" rel="noopener noreferrer">
-      <img class="connection-icon" src="https://cdn.jsdelivr.net/npm/simple-icons@v8/icons/letterboxd.svg" alt="Letterboxd">
-      <span class="connection-label">Letterboxd</span>
-    </a>
-    <a class="connection-btn" href="https://open.spotify.com/user/31n33hhguqc2j2ur53qzjvvtbps4?si=c433bd1962d648ac" target="_blank" rel="noopener noreferrer">
-      <img class="connection-icon" src="https://cdn.jsdelivr.net/npm/simple-icons@v8/icons/spotify.svg" alt="Spotify">
-      <span class="connection-label">Spotify</span>
-    </a>
-    <a class="connection-btn" href="https://discord.com/users/scytl" target="_blank" rel="noopener noreferrer">
-      <img class="connection-icon" src="https://cdn.jsdelivr.net/npm/simple-icons@v8/icons/discord.svg" alt="Discord">
-      <span class="connection-label">Discord</span>
-    </a>
+    <a class="connection-btn" href="https://anilist.co/user/scytale/" target="_blank"><img class="connection-icon" src="https://cdn.jsdelivr.net/npm/simple-icons@v8/icons/anilist.svg"><span class="connection-label">AniList</span></a>
+
+    <a class="connection-btn" href="https://www.serializd.com/user/scytale" target="_blank"><img class="connection-icon" src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/serializd.svg"><span class="connection-label">Serializd</span></a>
+
+    <a class="connection-btn" href="https://boxd.it/cuPZX" target="_blank"><img class="connection-icon" src="https://cdn.jsdelivr.net/npm/simple-icons@v8/icons/letterboxd.svg"><span class="connection-label">Letterboxd</span></a>
+
+    <a class="connection-btn" href="https://open.spotify.com/user/31n33hhguqc2j2ur53qzjvvtbps4" target="_blank"><img class="connection-icon" src="https://cdn.jsdelivr.net/npm/simple-icons@v8/icons/spotify.svg"><span class="connection-label">Spotify</span></a>
+
+    <a class="connection-btn" href="https://discord.com/users/scytl" target="_blank"><img class="connection-icon" src="https://cdn.jsdelivr.net/npm/simple-icons@v8/icons/discord.svg"><span class="connection-label">Discord</span></a>
   </nav>
 
 </main>
+
 </body>
 </html>
