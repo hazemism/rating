@@ -226,17 +226,21 @@
 
   <!-- Favorite Films -->
 <section class="section">
-  <h2>Favorite films</h2>
+  <h2>Favorite Films</h2>
   <div class="fav-row"></div>
+
+  <h3>Favorite Studio</h3>
+  <div class="fav-studio-row"></div>
 </section>
 
 <script>
-  
   const favoriteFilms = [
     { title: "Interstellar", type: "Sci-Fi", url: "https://letterboxd.com/film/interstellar/", img: "https://image.tmdb.org/t/p/w342/cE8vbYMK0gMohkihSf4cuhvSZxQ.jpg" },
     { title: "Dune", type: "Drama", url: "https://letterboxd.com/film/dune-2021/", img: "https://image.tmdb.org/t/p/w342/8hoD5BQuUV9dDecAbiyVIxLjzZ9.jpg" },
     { title: "The Social Dilemma", type: "Documentary", url: "https://letterboxd.com/film/the-social-dilemma/", img: "https://image.tmdb.org/t/p/w342/3kmOHBqiTcNRRzDrDB4buDb7IPP.jpg" },
-    { title: "Fantastic Mr. Fox", type: "Animation", url: "https://letterboxd.com/film/fantastic-mr-fox/", img: "https://image.tmdb.org/t/p/w342/njbTizADSZg4PqeyJdDzZGooikv.jpg" }
+    { title: "Fantastic Mr. Fox", type: "Animation", url: "https://letterboxd.com/film/fantastic-mr-fox/", img: "https://image.tmdb.org/t/p/w342/njbTizADSZg4PqeyJdDzZGooikv.jpg" },
+    { title: "Spider-Man: No Way Home", type: "Superhero", url: "#", img: "https://image.tmdb.org/t/p/w342/1g0dhYtq4irTY1GPXvft6k4YLjm.jpg" },
+    { title: "Harry Potter Series", type: "Movie Series", url: "#", img: "https://image.tmdb.org/t/p/w342/5aGhaIHYuQbqlHWvWYqMCnj40y2.jpg" }
   ];
 
   const favRow = document.querySelector(".fav-row");
@@ -274,28 +278,89 @@
     wrapper.append(typeDiv, item);
     favRow.appendChild(wrapper);
   });
+
+  // Favorite Studio
+  const favoriteStudio = [
+    { name: "Marvel", url: "https://www.marvel.com/", logo: "https://upload.wikimedia.org/wikipedia/commons/0/04/MarvelLogo.svg" }
+  ];
+  const studioRow = document.querySelector(".fav-studio-row");
+  studioRow.innerHTML = "";
+
+  favoriteStudio.forEach(studio => {
+    const wrapper = document.createElement("div");
+    wrapper.className = "fav-item-wrapper";
+
+    const typeDiv = document.createElement("div");
+    typeDiv.className = "fav-type";
+    typeDiv.textContent = "Studio";
+
+    const item = document.createElement("a");
+    item.className = "fav-item";
+    item.href = studio.url;
+    item.target = "_blank";
+    item.rel = "noopener";
+    const img = document.createElement("img");
+    img.src = studio.logo;
+    img.alt = studio.name + " logo";
+    const span = document.createElement("span");
+    span.textContent = studio.name;
+    item.append(img, span);
+
+    wrapper.append(typeDiv, item);
+    studioRow.appendChild(wrapper);
+  });
 </script>
 
 <style>
+.fav-row, .fav-studio-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: center;
+  margin-top: 12px;
+}
+
 .fav-item-wrapper {
   display: flex;
   flex-direction: column;
-  gap: 6px;
+  gap: 4px;
+  align-items: center;
+  width: 120px; 
+}
+
+.fav-item img {
+  width: 100%;
+  border-radius: 6px;
+  display: block;
+  transition: transform 0.3s;
+}
+
+.fav-item img:hover {
+  transform: scale(1.05);
+}
+
+.fav-item span {
+  display: block;
+  margin-top: 4px;
+  text-align: center;
+  color: #fff;
+  font-weight: 500;
 }
 
 .fav-type {
   text-align: center;
-  font-size: 1rem;
+  font-size: 0.8rem;
   font-weight: 700;
   color: #ffffff;
   background: rgba(0, 0, 0, 0.5);
-  padding: 3px 8px;
+  padding: 2px 6px;
   border-radius: 6px;
-  text-shadow: 0 1px 3px rgba(0,0,0,0.7);
+  text-shadow: 0 1px 2px rgba(0,0,0,0.7);
   display: inline-block;
   margin: 0 auto;
 }
 </style>
+
 
 
 
