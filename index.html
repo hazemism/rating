@@ -228,30 +228,52 @@
 <section class="section">
   <h2>Favorite films</h2>
   <div class="fav-row">
-    <a class="fav-item" href="https://letterboxd.com/film/interstellar/" target="_blank" rel="noopener">
-      <img src="https://theposterdb.com/api/assets/49567/view" alt="Interstellar poster">
-      <span style="position:absolute;top:5px;left:5px;font-size:0.75rem;font-weight:500;color:var(--white);background:rgba(0,0,0,0.6);padding:2px 6px;border-radius:6px;">Sci-Fi</span>
-      <span>Interstellar</span>
-    </a>
+    <div class="fav-item-wrapper">
+      <div class="fav-type">Sci-Fi</div>
+      <a class="fav-item" href="https://letterboxd.com/film/interstellar/" target="_blank" rel="noopener">
+        <img src="https://theposterdb.com/api/assets/49567/view" alt="Interstellar poster">
+        <span>Interstellar</span>
+      </a>
+    </div>
 
-    <a class="fav-item" href="https://letterboxd.com/film/dune-2021/" target="_blank" rel="noopener">
-      <img src="https://image.tmdb.org/t/p/original/4lmvpNyLeaBo8rztucjhAgILUUX.jpg" alt="Dune poster">
-      <span style="position:absolute;top:5px;left:5px;font-size:0.75rem;font-weight:500;color:var(--white);background:rgba(0,0,0,0.6);padding:2px 6px;border-radius:6px;">Drama</span>
-      <span>Dune</span>
-    </a>
+    <div class="fav-item-wrapper">
+      <div class="fav-type">Drama</div>
+      <a class="fav-item" href="https://letterboxd.com/film/dune-2021/" target="_blank" rel="noopener">
+        <img src="https://image.tmdb.org/t/p/original/4lmvpNyLeaBo8rztucjhAgILUUX.jpg" alt="Dune poster">
+        <span>Dune</span>
+      </a>
+    </div>
 
-    <a class="fav-item" href="https://letterboxd.com/film/the-social-dilemma/" target="_blank" rel="noopener">
-      <img src="https://image.tmdb.org/t/p/original/VAXS2hbKwCKd3DEz57Cr6ch61s.jpg" alt="The Social Dilemma poster">
-      <span style="position:absolute;top:5px;left:5px;font-size:0.75rem;font-weight:500;color:var(--white);background:rgba(0,0,0,0.6);padding:2px 6px;border-radius:6px;">Documentary</span>
-      <span>The Social Dilemma</span>
-    </a>
+    <div class="fav-item-wrapper">
+      <div class="fav-type">Documentary</div>
+      <a class="fav-item" href="https://letterboxd.com/film/the-social-dilemma/" target="_blank" rel="noopener">
+        <img src="https://image.tmdb.org/t/p/original/VAXS2hbKwCKd3DEz57Cr6ch61s.jpg" alt="The Social Dilemma poster">
+        <span>The Social Dilemma</span>
+      </a>
+    </div>
 
-    <div class="fav-item empty">
-      <span style="position:absolute;top:5px;left:5px;font-size:0.75rem;font-weight:500;color:var(--white);background:rgba(0,0,0,0.6);padding:2px 6px;border-radius:6px;">Animation</span>
-      <span>—</span>
+    <div class="fav-item-wrapper">
+      <div class="fav-type">Animation</div>
+      <div class="fav-item empty"><span>—</span></div>
     </div>
   </div>
 </section>
+
+<style>
+.fav-item-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.fav-type {
+  text-align: center;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--light-gray);
+}
+</style>
+
 
 
 
