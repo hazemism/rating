@@ -228,12 +228,16 @@
 <section class="section">
   <h2>Favorite films</h2>
   <div class="fav-row"></div>
+
+  <h2 style="margin-top:32px;">Favorite Studio</h2>
+  <div class="studio-row"></div>
 </section>
 
 <style>
+/* أفلام */
 .fav-row{
   display:flex;
-  gap:16px;
+  gap:14px;
   justify-content:center;
   flex-wrap:wrap;
 }
@@ -246,28 +250,44 @@
 }
 
 .fav-type{
-  font-size:.8rem;
+  font-size:.75rem;
   font-weight:700;
   color:#fff;
   background:rgba(0,0,0,.6);
-  padding:3px 8px;
+  padding:3px 7px;
   border-radius:6px;
 }
 
 .fav-item img{
-  width:130px;
-  border-radius:8px;
+  width:105px; /* بوسترات أصغر */
+  border-radius:7px;
   transition:.25s;
 }
 
 .fav-item img:hover{
-  transform:scale(1.05);
+  transform:scale(1.06);
 }
 
 /* ستوديو */
-.studio img{
-  width:110px;
-  border-radius:6px;
+.studio-row{
+  display:flex;
+  justify-content:center;
+  margin-top:14px;
+}
+
+.studio-card{
+  width:140px;
+  height:70px;
+  border-radius:10px;
+  background:#e50914;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-weight:900;
+  font-size:1.4rem;
+  letter-spacing:2px;
+  color:#fff;
+  box-shadow:0 8px 25px rgba(0,0,0,.4);
 }
 </style>
 
@@ -302,13 +322,8 @@ const favoriteFilms = [
     type:"Superhero",
     url:"#",
     img:"https://image.tmdb.org/t/p/w342/1g0dhYtq4irTY1GPXvft6k4YLjm.jpg"
-  },
-
- 
-  /* Favorite Studio */
-   { type:"Favorite Studio", studio:true, name:"MARVEL" }
+  }
 ];
-  
 
 const favRow=document.querySelector(".fav-row");
 
@@ -319,30 +334,29 @@ favoriteFilms.forEach(film=>{
   const type=document.createElement("div");
   type.className="fav-type";
   type.textContent=film.type;
-  wrap.appendChild(type);
 
-  if(film.studio){
-    const div=document.createElement("div");
-    div.className="fav-item studio";
-    const img=document.createElement("img");
-    img.src=film.img;
-    div.appendChild(img);
-    wrap.appendChild(div);
-  }else{
-    const a=document.createElement("a");
-    a.className="fav-item";
-    a.href=film.url;
-    a.target="_blank";
-    const img=document.createElement("img");
-    img.src=film.img;
-    img.alt=film.title;
-    a.appendChild(img);
-    wrap.appendChild(a);
-  }
+  const a=document.createElement("a");
+  a.className="fav-item";
+  a.href=film.url;
+  a.target="_blank";
 
+  const img=document.createElement("img");
+  img.src=film.img;
+  img.alt=film.title;
+
+  a.appendChild(img);
+  wrap.append(type,a);
   favRow.appendChild(wrap);
 });
+
+/* Favorite Studio */
+const studioRow=document.querySelector(".studio-row");
+const marvel=document.createElement("div");
+marvel.className="studio-card";
+marvel.textContent="MARVEL";
+studioRow.appendChild(marvel);
 </script>
+
 
 
 
