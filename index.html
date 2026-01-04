@@ -226,7 +226,7 @@
 
   <!-- Favorite Films -->
 <section class="section">
-  <h2>Favorite films</h2>
+  <h2>Favorite Genders</h2>
   <div class="fav-row"></div>
 
   <h2 style="margin-top:32px;">Favorite Studio</h2>
@@ -234,7 +234,7 @@
 </section>
 
 <style>
-/* أفلام */
+
 .fav-row{
   display:flex;
   gap:14px;
@@ -259,7 +259,7 @@
 }
 
 .fav-item img{
-  width:105px; /* بوسترات أصغر */
+  width:105px; 
   border-radius:7px;
   transition:.25s;
 }
@@ -268,26 +268,26 @@
   transform:scale(1.06);
 }
 
-/* ستوديو */
+
 .studio-row{
   display:flex;
   justify-content:center;
   margin-top:14px;
+  gap:14px;
 }
 
 .studio-card{
   width:140px;
   height:70px;
-  border-radius:10px;
-  background:#e50914;
   display:flex;
   align-items:center;
   justify-content:center;
   font-weight:900;
   font-size:1.4rem;
   letter-spacing:2px;
-  color:#fff;
-  box-shadow:0 8px 25px rgba(0,0,0,.4);
+  color:#000; 
+  background:none; 
+  border:2px solid #000; 
 }
 </style>
 
@@ -356,7 +356,6 @@ marvel.className="studio-card";
 marvel.textContent="MARVEL";
 studioRow.appendChild(marvel);
 </script>
-
 
 
 
