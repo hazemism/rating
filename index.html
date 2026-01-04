@@ -227,37 +227,50 @@
   <!-- Favorite Films -->
 <section class="section">
   <h2>Favorite films</h2>
-  <div class="fav-row">
-    <div class="fav-item-wrapper">
-      <div class="fav-type">Sci-Fi</div>
-      <a class="fav-item" href="https://letterboxd.com/film/interstellar/" target="_blank" rel="noopener">
-        <img src="https://theposterdb.com/api/assets/49567/view" alt="Interstellar poster">
-        <span>Interstellar</span>
-      </a>
-    </div>
-
-    <div class="fav-item-wrapper">
-      <div class="fav-type">Drama</div>
-      <a class="fav-item" href="https://letterboxd.com/film/dune-2021/" target="_blank" rel="noopener">
-        <img src="https://image.tmdb.org/t/p/original/4lmvpNyLeaBo8rztucjhAgILUUX.jpg" alt="Dune poster">
-        <span>Dune</span>
-      </a>
-    </div>
-
-    <div class="fav-item-wrapper">
-      <div class="fav-type">Documentary</div>
-      <a class="fav-item" href="https://letterboxd.com/film/the-social-dilemma/" target="_blank" rel="noopener">
-        <img src="https://image.tmdb.org/t/p/original/VAXS2hbKwCKd3DEz57Cr6ch61s.jpg" alt="The Social Dilemma poster">
-        <span>The Social Dilemma</span>
-      </a>
-    </div>
-
-    <div class="fav-item-wrapper">
-      <div class="fav-type">Animation</div>
-      <div class="fav-item empty"><span>—</span></div>
-    </div>
-  </div>
+  <div class="fav-row"></div>
 </section>
+
+<script>
+const API_KEY = "277fd96ff67ee4bbb191a831f8131e4f";
+const LIST_ID = 8582582;
+
+const favRow = document.querySelector(".fav-row");
+
+fetch(`https://api.themoviedb.org/4/list/${LIST_ID}/items?api_key=${API_KEY}`)
+  .then(res => res.json())
+  .then(data => {
+    favRow.innerHTML = "";
+    
+    data.results.forEach(movie => {
+      const wrapper = document.createElement("div");
+      wrapper.className = "fav-item-wrapper";
+
+      const typeDiv = document.createElement("div");
+      typeDiv.className = "fav-type";
+     
+      typeDiv.textContent = movie.media_type === "movie" ? "Movie" : "Show";
+
+     
+      const item = document.createElement("a");
+      item.className = "fav-item";
+      item.href = `https://www.themoviedb.org/${movie.media_type}/${movie.id}`;
+      item.target = "_blank";
+      item.rel = "noopener";
+
+      const img = document.createElement("img");
+      img.src = movie.poster_path ? `https://image.tmdb.org/t/p/w342${movie.poster_path}` : "";
+      img.alt = movie.title ?? movie.name;
+
+      const span = document.createElement("span");
+      span.textContent = movie.title ?? movie.name;
+
+      item.append(img, span);
+      wrapper.append(typeDiv, item);
+      favRow.appendChild(wrapper);
+    });
+  })
+  .catch(err => console.error("Failed to load TMDb list:", err));
+</script>
 
 <style>
 .fav-item-wrapper {
@@ -268,18 +281,18 @@
 
 .fav-type {
   text-align: center;
-  font-size: 1rem;             
-  font-weight: 700;           
-  color: #ffffff;              
+  font-size: 1rem;
+  font-weight: 700;
+  color: #ffffff;
   background: rgba(0, 0, 0, 0.5);
-  padding: 3px 8px;            
-  border-radius: 6px;         
-  text-shadow: 0 1px 3px rgba(0,0,0,0.7); 
-  display: inline-block;        
-  margin: 0 auto;               
+  padding: 3px 8px;
+  border-radius: 6px;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.7);
+  display: inline-block;
+  margin: 0 auto;
 }
-
 </style>
+
 
 
 
