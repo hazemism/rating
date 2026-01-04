@@ -226,139 +226,133 @@
 
   <!-- Favorite Films -->
 <section class="section">
-  <h2>Favorite Films</h2>
+  <h2>Favorite films</h2>
   <div class="fav-row"></div>
-
-  <h3>Favorite Studio</h3>
-  <div class="fav-studio-row"></div>
 </section>
 
+<style>
+.fav-row{
+  display:flex;
+  gap:16px;
+  justify-content:center;
+  flex-wrap:wrap;
+}
+
+.fav-item-wrapper{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:6px;
+}
+
+.fav-type{
+  font-size:.85rem;
+  font-weight:700;
+  color:#fff;
+  background:rgba(0,0,0,.6);
+  padding:3px 8px;
+  border-radius:6px;
+}
+
+.fav-item img{
+  width:140px;
+  border-radius:8px;
+  transition:.25s;
+}
+
+.fav-item img:hover{
+  transform:scale(1.05);
+}
+
+.series-grid{
+  width:140px;
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:6px;
+}
+
+.series-grid img{
+  width:100%;
+  border-radius:4px;
+  transition:.2s;
+}
+
+.series-grid img:hover{
+  transform:scale(1.1);
+}
+</style>
+
 <script>
-  const favoriteFilms = [
-    { title: "Interstellar", type: "Sci-Fi", url: "https://letterboxd.com/film/interstellar/", img: "https://image.tmdb.org/t/p/w342/cE8vbYMK0gMohkihSf4cuhvSZxQ.jpg" },
-    { title: "Dune", type: "Drama", url: "https://letterboxd.com/film/dune-2021/", img: "https://image.tmdb.org/t/p/w342/8hoD5BQuUV9dDecAbiyVIxLjzZ9.jpg" },
-    { title: "The Social Dilemma", type: "Documentary", url: "https://letterboxd.com/film/the-social-dilemma/", img: "https://image.tmdb.org/t/p/w342/3kmOHBqiTcNRRzDrDB4buDb7IPP.jpg" },
-    { title: "Fantastic Mr. Fox", type: "Animation", url: "https://letterboxd.com/film/fantastic-mr-fox/", img: "https://image.tmdb.org/t/p/w342/njbTizADSZg4PqeyJdDzZGooikv.jpg" },
-    { title: "Spider-Man: No Way Home", type: "Superhero", url: "#", img: "https://image.tmdb.org/t/p/w342/1g0dhYtq4irTY1GPXvft6k4YLjm.jpg" },
-    { title: "Harry Potter Series", type: "Movie Series", url: "#", img: "https://image.tmdb.org/t/p/w342/5aGhaIHYuQbqlHWvWYqMCnj40y2.jpg" }
-  ];
+const favoriteFilms = [
+  {
+    title:"Interstellar",
+    type:"Sci-Fi",
+    url:"https://letterboxd.com/film/interstellar/",
+    img:"https://image.tmdb.org/t/p/w342/cE8vbYMK0gMohkihSf4cuhvSZxQ.jpg"
+  },
+  {
+    title:"Dune",
+    type:"Drama",
+    url:"https://letterboxd.com/film/dune-2021/",
+    img:"https://image.tmdb.org/t/p/w342/8hoD5BQuUV9dDecAbiyVIxLjzZ9.jpg"
+  },
+  {
+    title:"Spider-Man",
+    type:"Superhero",
+    url:"#",
+    img:"https://image.tmdb.org/t/p/w342/1g0dhYtq4irTY1GPXvft6k4YLjm.jpg"
+  },
+  {
+    type:"سلسلة أفلام",
+    series:[
+      "wuMc08IPKEatf9rnMNXvIDxqP4W",
+      "5aGhaIHYuQbqlHWvWYqMCnj40y2",
+      "aWxwnYoe8p2d2fcxOqtvAtJ72Rw",
+      "fECBtHlr0RB3foNHDiCBXeg9Bv9",
+      "5vZ9v4zX6f7K3k2cPp4Y7r8F9b",
+      "bFXys2nhALwDvpkF3dP3Vvdfn8b",
+      "iGoXIpQb7Pot00EEdwpwPajheZ5",
+      "c54HpQmuwXjHq2C9wmoACjxoom3"
+    ]
+  }
+];
 
-  const favRow = document.querySelector(".fav-row");
-  favRow.innerHTML = "";
+const favRow=document.querySelector(".fav-row");
 
-  favoriteFilms.forEach(film => {
-    const wrapper = document.createElement("div");
-    wrapper.className = "fav-item-wrapper";
+favoriteFilms.forEach(film=>{
+  const wrap=document.createElement("div");
+  wrap.className="fav-item-wrapper";
 
-    const typeDiv = document.createElement("div");
-    typeDiv.className = "fav-type";
-    typeDiv.textContent = film.type;
+  const type=document.createElement("div");
+  type.className="fav-type";
+  type.textContent=film.type;
 
-    let item;
-    if(film.img){
-      item = document.createElement("a");
-      item.className = "fav-item";
-      item.href = film.url;
-      item.target = "_blank";
-      item.rel = "noopener";
-      const img = document.createElement("img");
-      img.src = film.img;
-      img.alt = film.title + " poster";
-      const span = document.createElement("span");
-      span.textContent = film.title;
-      item.append(img, span);
-    } else {
-      item = document.createElement("div");
-      item.className = "fav-item empty";
-      const span = document.createElement("span");
-      span.textContent = "—";
-      item.appendChild(span);
-    }
+  wrap.appendChild(type);
 
-    wrapper.append(typeDiv, item);
-    favRow.appendChild(wrapper);
-  });
+  if(film.series){
+    const grid=document.createElement("div");
+    grid.className="series-grid";
+    film.series.forEach(p=>{
+      const img=document.createElement("img");
+      img.src=`https://image.tmdb.org/t/p/w185/${p}.jpg`;
+      grid.appendChild(img);
+    });
+    wrap.appendChild(grid);
+  }else{
+    const a=document.createElement("a");
+    a.className="fav-item";
+    a.href=film.url;
+    a.target="_blank";
+    const img=document.createElement("img");
+    img.src=film.img;
+    a.appendChild(img);
+    wrap.appendChild(a);
+  }
 
-  // Favorite Studio
-  const favoriteStudio = [
-    { name: "Marvel", url: "https://www.marvel.com/", logo: "https://upload.wikimedia.org/wikipedia/commons/0/04/MarvelLogo.svg" }
-  ];
-  const studioRow = document.querySelector(".fav-studio-row");
-  studioRow.innerHTML = "";
-
-  favoriteStudio.forEach(studio => {
-    const wrapper = document.createElement("div");
-    wrapper.className = "fav-item-wrapper";
-
-    const typeDiv = document.createElement("div");
-    typeDiv.className = "fav-type";
-    typeDiv.textContent = "Studio";
-
-    const item = document.createElement("a");
-    item.className = "fav-item";
-    item.href = studio.url;
-    item.target = "_blank";
-    item.rel = "noopener";
-    const img = document.createElement("img");
-    img.src = studio.logo;
-    img.alt = studio.name + " logo";
-    const span = document.createElement("span");
-    span.textContent = studio.name;
-    item.append(img, span);
-
-    wrapper.append(typeDiv, item);
-    studioRow.appendChild(wrapper);
-  });
+  favRow.appendChild(wrap);
+});
 </script>
 
-<style>
-.fav-row, .fav-studio-row {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 12px;
-  justify-content: center;
-  margin-top: 12px;
-}
-
-.fav-item-wrapper {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-  align-items: center;
-  width: 120px; 
-}
-
-.fav-item img {
-  width: 100%;
-  border-radius: 6px;
-  display: block;
-  transition: transform 0.3s;
-}
-
-.fav-item img:hover {
-  transform: scale(1.05);
-}
-
-.fav-item span {
-  display: block;
-  margin-top: 4px;
-  text-align: center;
-  color: #fff;
-  font-weight: 500;
-}
-
-.fav-type {
-  text-align: center;
-  font-size: 0.8rem;
-  font-weight: 700;
-  color: #ffffff;
-  background: rgba(0, 0, 0, 0.5);
-  padding: 2px 6px;
-  border-radius: 6px;
-  text-shadow: 0 1px 2px rgba(0,0,0,0.7);
-  display: inline-block;
-  margin: 0 auto;
-}
 </style>
 
 
