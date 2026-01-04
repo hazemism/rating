@@ -264,30 +264,10 @@
   transform:scale(1.05);
 }
 
-/* سلسلة أفلام */
-.series-grid{
-  width:130px;
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:6px;
-}
-
-.series-grid img{
-  width:100%;
-  border-radius:4px;
-  transition:.2s;
-}
-
-.series-grid img:hover{
-  transform:scale(1.1);
-}
-
 /* ستوديو */
 .studio img{
   width:110px;
-  background:#fff;
-  padding:8px;
-  border-radius:8px;
+  border-radius:6px;
 }
 </style>
 
@@ -323,19 +303,58 @@ const favoriteFilms = [
     url:"#",
     img:"https://image.tmdb.org/t/p/w342/1g0dhYtq4irTY1GPXvft6k4YLjm.jpg"
   },
+
+  /* Harry Potter – أفلام عادية */
   {
-    type:"سلسلة أفلام",
-    series:[
-      "wuMc08IPKEatf9rnMNXvIDxqP4W",
-      "5aGhaIHYuQbqlHWvWYqMCnj40y2",
-      "aWxwnYoe8p2d2fcxOqtvAtJ72Rw",
-      "fECBtHlr0RB3foNHDiCBXeg9Bv9",
-      "5vZ9v4zX6f7K3k2cPp4Y7r8F9b",
-      "bFXys2nhALwDvpkF3dP3Vvdfn8b",
-      "iGoXIpQb7Pot00EEdwpwPajheZ5",
-      "c54HpQmuwXjHq2C9wmoACjxoom3"
-    ]
+    title:"Harry Potter 1",
+    type:"Fantasy",
+    url:"#",
+    img:"https://image.tmdb.org/t/p/w342/wuMc08IPKEatf9rnMNXvIDxqP4W.jpg"
   },
+  {
+    title:"Harry Potter 2",
+    type:"Fantasy",
+    url:"#",
+    img:"https://image.tmdb.org/t/p/w342/5aGhaIHYuQbqlHWvWYqMCnj40y2.jpg"
+  },
+  {
+    title:"Harry Potter 3",
+    type:"Fantasy",
+    url:"#",
+    img:"https://image.tmdb.org/t/p/w342/aWxwnYoe8p2d2fcxOqtvAtJ72Rw.jpg"
+  },
+  {
+    title:"Harry Potter 4",
+    type:"Fantasy",
+    url:"#",
+    img:"https://image.tmdb.org/t/p/w342/fECBtHlr0RB3foNHDiCBXeg9Bv9.jpg"
+  },
+  {
+    title:"Harry Potter 5",
+    type:"Fantasy",
+    url:"#",
+    img:"https://image.tmdb.org/t/p/w342/5vZ9v4zX6f7K3k2cPp4Y7r8F9b.jpg"
+  },
+  {
+    title:"Harry Potter 6",
+    type:"Fantasy",
+    url:"#",
+    img:"https://image.tmdb.org/t/p/w342/bFXys2nhALwDvpkF3dP3Vvdfn8b.jpg"
+  },
+  {
+    title:"Harry Potter 7-1",
+    type:"Fantasy",
+    url:"#",
+    img:"https://image.tmdb.org/t/p/w342/iGoXIpQb7Pot00EEdwpwPajheZ5.jpg"
+  },
+  {
+    title:"Harry Potter 7-2",
+    type:"Fantasy",
+    url:"#",
+    img:"https://image.tmdb.org/t/p/w342/c54HpQmuwXjHq2C9wmoACjxoom3.jpg"
+  },
+
+  /* Favorite Studio */
   {
     type:"Favorite Studio",
     studio:true,
@@ -354,31 +373,21 @@ favoriteFilms.forEach(film=>{
   type.textContent=film.type;
   wrap.appendChild(type);
 
-  if(film.series){
-    const grid=document.createElement("div");
-    grid.className="series-grid";
-    film.series.forEach(p=>{
-      const img=document.createElement("img");
-      img.src=`https://image.tmdb.org/t/p/w185/${p}.jpg`;
-      grid.appendChild(img);
-    });
-    wrap.appendChild(grid);
-  }
-  else if(film.studio){
+  if(film.studio){
     const div=document.createElement("div");
     div.className="fav-item studio";
     const img=document.createElement("img");
     img.src=film.img;
     div.appendChild(img);
     wrap.appendChild(div);
-  }
-  else{
+  }else{
     const a=document.createElement("a");
     a.className="fav-item";
     a.href=film.url;
     a.target="_blank";
     const img=document.createElement("img");
     img.src=film.img;
+    img.alt=film.title;
     a.appendChild(img);
     wrap.appendChild(a);
   }
@@ -386,6 +395,7 @@ favoriteFilms.forEach(film=>{
   favRow.appendChild(wrap);
 });
 </script>
+
 
 
 
