@@ -231,26 +231,31 @@
 </section>
 
 <script>
-const API_KEY = "277fd96ff67ee4bbb191a831f8131e4f";
+const ACCESS_TOKEN = "eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIyNzdmZDk2ZmY2N2VlNGJiYjE5MWE4MzFmODEzMWU0ZiIsIm5iZiI6MTc0NDM2ODA0Mi4yMTUwMDAyLCJzdWIiOiI2N2Y4ZjFhYWRlNWU0ZGVjNjJhZDZhNGUiLCJzY29wZXMiOlsiYXBpX3JlYWQiXSwidmVyc2lvbiI6MX0.ONytyCn_qnsHiZQkusqgFwjGbPPvbB06ZjYNlCteOI0";
 const LIST_ID = 8582582;
 
 const favRow = document.querySelector(".fav-row");
 
-fetch(`https://api.themoviedb.org/4/list/${LIST_ID}/items?api_key=${API_KEY}`)
+fetch(`https://api.themoviedb.org/4/list/${LIST_ID}/items`, {
+  headers: {
+    "Authorization": `Bearer ${ACCESS_TOKEN}`,
+    "Content-Type": "application/json;charset=utf-8"
+  }
+})
   .then(res => res.json())
   .then(data => {
-    favRow.innerHTML = "";
-    
+    favRow.innerHTML = ""; // تفريغ أي محتوى قديم
+
     data.results.forEach(movie => {
       const wrapper = document.createElement("div");
       wrapper.className = "fav-item-wrapper";
 
+      // نوع الفيلم
       const typeDiv = document.createElement("div");
       typeDiv.className = "fav-type";
-     
       typeDiv.textContent = movie.media_type === "movie" ? "Movie" : "Show";
 
-     
+      // العنصر
       const item = document.createElement("a");
       item.className = "fav-item";
       item.href = `https://www.themoviedb.org/${movie.media_type}/${movie.id}`;
@@ -287,11 +292,8 @@ fetch(`https://api.themoviedb.org/4/list/${LIST_ID}/items?api_key=${API_KEY}`)
   background: rgba(0, 0, 0, 0.5);
   padding: 3px 8px;
   border-radius: 6px;
-  text-shadow: 0 1px 3px rgba(0,0,0,0.7);
-  display: inline-block;
-  margin: 0 auto;
-}
-</style>
+  text-shadow: 0 1p
+
 
 
 
