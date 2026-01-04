@@ -229,7 +229,7 @@
   <h2>Favorite Genres</h2>
   <div class="fav-row"></div>
 
-  <h2 style="margin-top:32px;">I Love MCU</h2>
+  <h2 style="margin-top:32px;">Favorite Studio</h2>
   <div class="studio-row"></div>
 </section>
 
@@ -365,16 +365,12 @@ favoriteFilms.forEach(film=>{
 });
 
 /* Favorite Studio */
-const studioRow = document.querySelector(".studio-row");
-const marvel = document.createElement("div");
-marvel.className = "studio-card";
-marvel.textContent = "MARVEL";
-marvel.addEventListener("click", () => {
-  window.open("https://www.marvel.com/", "_blank");
-});
-
+const studioRow=document.querySelector(".studio-row");
+const marvel=document.createElement("div");
+marvel.className="studio-card";
+marvel.textContent="MARVEL";
 studioRow.appendChild(marvel);
-
+</script>
 
 
 
