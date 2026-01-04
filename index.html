@@ -227,37 +227,54 @@
   <!-- Favorite Films -->
 <section class="section">
   <h2>Favorite films</h2>
-  <div class="fav-row">
-    <div class="fav-item-wrapper">
-      <div class="fav-type">Sci-Fi</div>
-      <a class="fav-item" href="https://letterboxd.com/film/interstellar/" target="_blank" rel="noopener">
-        <img src="https://theposterdb.com/api/assets/49567/view" alt="Interstellar poster">
-        <span>Interstellar</span>
-      </a>
-    </div>
-
-    <div class="fav-item-wrapper">
-      <div class="fav-type">Drama</div>
-      <a class="fav-item" href="https://letterboxd.com/film/dune-2021/" target="_blank" rel="noopener">
-        <img src="https://image.tmdb.org/t/p/original/4lmvpNyLeaBo8rztucjhAgILUUX.jpg" alt="Dune poster">
-        <span>Dune</span>
-      </a>
-    </div>
-
-    <div class="fav-item-wrapper">
-      <div class="fav-type">Documentary</div>
-      <a class="fav-item" href="https://letterboxd.com/film/the-social-dilemma/" target="_blank" rel="noopener">
-        <img src="https://image.tmdb.org/t/p/original/VAXS2hbKwCKd3DEz57Cr6ch61s.jpg" alt="The Social Dilemma poster">
-        <span>The Social Dilemma</span>
-      </a>
-    </div>
-
-    <div class="fav-item-wrapper">
-      <div class="fav-type">Animation</div>
-      <div class="fav-item empty"><span>—</span></div>
-    </div>
-  </div>
+  <div class="fav-row"></div>
 </section>
+
+<script>
+  
+  const favoriteFilms = [
+    { title: "Interstellar", type: "Sci-Fi", url: "https://letterboxd.com/film/interstellar/", img: "https://theposterdb.com/api/assets/49567/view" },
+    { title: "Dune", type: "Drama", url: "https://letterboxd.com/film/dune-2021/", img: "https://image.tmdb.org/t/p/original/4lmvpNyLeaBo8rztucjhAgILUUX.jpg" },
+    { title: "The Social Dilemma", type: "Documentary", url: "https://letterboxd.com/film/the-social-dilemma/", img: "https://image.tmdb.org/t/p/original/VAXS2hbKwCKd3DEz57Cr6ch61s.jpg" },
+    { title: "—", type: "Animation", url: "", img: "" }
+  ];
+
+  const favRow = document.querySelector(".fav-row");
+  favRow.innerHTML = "";
+
+  favoriteFilms.forEach(film => {
+    const wrapper = document.createElement("div");
+    wrapper.className = "fav-item-wrapper";
+
+    const typeDiv = document.createElement("div");
+    typeDiv.className = "fav-type";
+    typeDiv.textContent = film.type;
+
+    let item;
+    if(film.img){
+      item = document.createElement("a");
+      item.className = "fav-item";
+      item.href = film.url;
+      item.target = "_blank";
+      item.rel = "noopener";
+      const img = document.createElement("img");
+      img.src = film.img;
+      img.alt = film.title + " poster";
+      const span = document.createElement("span");
+      span.textContent = film.title;
+      item.append(img, span);
+    } else {
+      item = document.createElement("div");
+      item.className = "fav-item empty";
+      const span = document.createElement("span");
+      span.textContent = "—";
+      item.appendChild(span);
+    }
+
+    wrapper.append(typeDiv, item);
+    favRow.appendChild(wrapper);
+  });
+</script>
 
 <style>
 .fav-item-wrapper {
@@ -268,18 +285,18 @@
 
 .fav-type {
   text-align: center;
-  font-size: 1rem;             
-  font-weight: 700;           
-  color: #ffffff;              
+  font-size: 1rem;
+  font-weight: 700;
+  color: #ffffff;
   background: rgba(0, 0, 0, 0.5);
-  padding: 3px 8px;            
-  border-radius: 6px;         
-  text-shadow: 0 1px 3px rgba(0,0,0,0.7); 
-  display: inline-block;        
-  margin: 0 auto;               
+  padding: 3px 8px;
+  border-radius: 6px;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.7);
+  display: inline-block;
+  margin: 0 auto;
 }
-
 </style>
+
 
 
 
