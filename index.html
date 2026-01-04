@@ -246,7 +246,7 @@
 }
 
 .fav-type{
-  font-size:.85rem;
+  font-size:.8rem;
   font-weight:700;
   color:#fff;
   background:rgba(0,0,0,.6);
@@ -255,7 +255,7 @@
 }
 
 .fav-item img{
-  width:140px;
+  width:130px;
   border-radius:8px;
   transition:.25s;
 }
@@ -264,8 +264,9 @@
   transform:scale(1.05);
 }
 
+/* سلسلة أفلام */
 .series-grid{
-  width:140px;
+  width:130px;
   display:grid;
   grid-template-columns:repeat(4,1fr);
   gap:6px;
@@ -279,6 +280,14 @@
 
 .series-grid img:hover{
   transform:scale(1.1);
+}
+
+/* ستوديو */
+.studio img{
+  width:110px;
+  background:#fff;
+  padding:8px;
+  border-radius:8px;
 }
 </style>
 
@@ -295,6 +304,18 @@ const favoriteFilms = [
     type:"Drama",
     url:"https://letterboxd.com/film/dune-2021/",
     img:"https://image.tmdb.org/t/p/w342/8hoD5BQuUV9dDecAbiyVIxLjzZ9.jpg"
+  },
+  {
+    title:"The Social Dilemma",
+    type:"Documentary",
+    url:"https://letterboxd.com/film/the-social-dilemma/",
+    img:"https://image.tmdb.org/t/p/w342/3kmOHBqiTcNRRzDrDB4buDb7IPP.jpg"
+  },
+  {
+    title:"Fantastic Mr. Fox",
+    type:"Animation",
+    url:"https://letterboxd.com/film/fantastic-mr-fox/",
+    img:"https://image.tmdb.org/t/p/w342/njbTizADSZg4PqeyJdDzZGooikv.jpg"
   },
   {
     title:"Spider-Man",
@@ -314,6 +335,11 @@ const favoriteFilms = [
       "iGoXIpQb7Pot00EEdwpwPajheZ5",
       "c54HpQmuwXjHq2C9wmoACjxoom3"
     ]
+  },
+  {
+    type:"Favorite Studio",
+    studio:true,
+    img:"https://upload.wikimedia.org/wikipedia/commons/0/04/MarvelLogo.svg"
   }
 ];
 
@@ -326,7 +352,6 @@ favoriteFilms.forEach(film=>{
   const type=document.createElement("div");
   type.className="fav-type";
   type.textContent=film.type;
-
   wrap.appendChild(type);
 
   if(film.series){
@@ -338,7 +363,16 @@ favoriteFilms.forEach(film=>{
       grid.appendChild(img);
     });
     wrap.appendChild(grid);
-  }else{
+  }
+  else if(film.studio){
+    const div=document.createElement("div");
+    div.className="fav-item studio";
+    const img=document.createElement("img");
+    img.src=film.img;
+    div.appendChild(img);
+    wrap.appendChild(div);
+  }
+  else{
     const a=document.createElement("a");
     a.className="fav-item";
     a.href=film.url;
@@ -353,7 +387,6 @@ favoriteFilms.forEach(film=>{
 });
 </script>
 
-</style>
 
 
 
