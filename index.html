@@ -227,55 +227,37 @@
   <!-- Favorite Films -->
 <section class="section">
   <h2>Favorite films</h2>
-  <div class="fav-row"></div>
+  <div class="fav-row">
+    <div class="fav-item-wrapper">
+      <div class="fav-type">Sci-Fi</div>
+      <a class="fav-item" href="https://letterboxd.com/film/interstellar/" target="_blank" rel="noopener">
+        <img src="https://theposterdb.com/api/assets/49567/view" alt="Interstellar poster">
+        <span>Interstellar</span>
+      </a>
+    </div>
+
+    <div class="fav-item-wrapper">
+      <div class="fav-type">Drama</div>
+      <a class="fav-item" href="https://letterboxd.com/film/dune-2021/" target="_blank" rel="noopener">
+        <img src="https://image.tmdb.org/t/p/original/4lmvpNyLeaBo8rztucjhAgILUUX.jpg" alt="Dune poster">
+        <span>Dune</span>
+      </a>
+    </div>
+
+    <div class="fav-item-wrapper">
+      <div class="fav-type">Documentary</div>
+      <a class="fav-item" href="https://letterboxd.com/film/the-social-dilemma/" target="_blank" rel="noopener">
+        <img src="https://image.tmdb.org/t/p/original/VAXS2hbKwCKd3DEz57Cr6ch61s.jpg" alt="The Social Dilemma poster">
+        <span>The Social Dilemma</span>
+      </a>
+    </div>
+
+    <div class="fav-item-wrapper">
+      <div class="fav-type">Animation</div>
+      <div class="fav-item empty"><span>—</span></div>
+    </div>
+  </div>
 </section>
-
-<script>
-const ACCESS_TOKEN = "eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIyNzdmZDk2ZmY2N2VlNGJiYjE5MWE4MzFmODEzMWU0ZiIsIm5iZiI6MTc0NDM2ODA0Mi4yMTUwMDAyLCJzdWIiOiI2N2Y4ZjFhYWRlNWU0ZGVjNjJhZDZhNGUiLCJzY29wZXMiOlsiYXBpX3JlYWQiXSwidmVyc2lvbiI6MX0.ONytyCn_qnsHiZQkusqgFwjGbPPvbB06ZjYNlCteOI0";
-const LIST_ID = 8582582;
-
-const favRow = document.querySelector(".fav-row");
-
-fetch(`https://api.themoviedb.org/4/list/${LIST_ID}/items`, {
-  headers: {
-    "Authorization": `Bearer ${ACCESS_TOKEN}`,
-    "Content-Type": "application/json;charset=utf-8"
-  }
-})
-  .then(res => res.json())
-  .then(data => {
-    favRow.innerHTML = ""; // تفريغ أي محتوى قديم
-
-    data.results.forEach(movie => {
-      const wrapper = document.createElement("div");
-      wrapper.className = "fav-item-wrapper";
-
-      // نوع الفيلم
-      const typeDiv = document.createElement("div");
-      typeDiv.className = "fav-type";
-      typeDiv.textContent = movie.media_type === "movie" ? "Movie" : "Show";
-
-      // العنصر
-      const item = document.createElement("a");
-      item.className = "fav-item";
-      item.href = `https://www.themoviedb.org/${movie.media_type}/${movie.id}`;
-      item.target = "_blank";
-      item.rel = "noopener";
-
-      const img = document.createElement("img");
-      img.src = movie.poster_path ? `https://image.tmdb.org/t/p/w342${movie.poster_path}` : "";
-      img.alt = movie.title ?? movie.name;
-
-      const span = document.createElement("span");
-      span.textContent = movie.title ?? movie.name;
-
-      item.append(img, span);
-      wrapper.append(typeDiv, item);
-      favRow.appendChild(wrapper);
-    });
-  })
-  .catch(err => console.error("Failed to load TMDb list:", err));
-</script>
 
 <style>
 .fav-item-wrapper {
@@ -286,15 +268,18 @@ fetch(`https://api.themoviedb.org/4/list/${LIST_ID}/items`, {
 
 .fav-type {
   text-align: center;
-  font-size: 1rem;
-  font-weight: 700;
-  color: #ffffff;
+  font-size: 1rem;             
+  font-weight: 700;           
+  color: #ffffff;              
   background: rgba(0, 0, 0, 0.5);
-  padding: 3px 8px;
-  border-radius: 6px;
-  text-shadow: 0 1p
+  padding: 3px 8px;            
+  border-radius: 6px;         
+  text-shadow: 0 1px 3px rgba(0,0,0,0.7); 
+  display: inline-block;        
+  margin: 0 auto;               
+}
 
-
+</style>
 
 
 
