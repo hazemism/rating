@@ -300,8 +300,15 @@
   transform:scale(1.05);
   box-shadow:0 6px 20px rgba(0,0,0,0.5);
 }
-</style>
+/* Letterboxd black & white → color on hover */
+.letterboxd img{
+  filter: grayscale(100%) brightness(0) invert(1);
+  transition: filter .3s ease;
+}
 
+.letterboxd:hover img{
+  filter: none;
+}
 
 </style>
 
