@@ -296,18 +296,32 @@
   transition: transform .2s, box-shadow .2s;
 }
 
-.studio-card:hover{
-  transform:scale(1.05);
-  box-shadow:0 6px 20px rgba(0,0,0,0.5);
-}
-/* Letterboxd black & white → color on hover */
-.letterboxd img{
-  filter: grayscale(100%) brightness(0) invert(1);
-  transition: filter .3s ease;
+.connection-btn.logo-only{
+  width: 36px; 
+  height: 36px;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent;
+  border-radius: 50%;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  filter: brightness(0) invert(1); 
+  transition: filter .25s ease, transform .2s ease;
+  cursor: pointer;
 }
 
-.letterboxd:hover img{
+/*Letterboxd */
+.connection-btn.letterboxd{
+  background-image: url("https://cdn.jsdelivr.net/npm/simple-icons@v8/icons/letterboxd.svg");
+}
+
+/* Hover */
+.connection-btn.logo-only:hover{
   filter: none;
+  transform: translateY(-2px);
 }
 
 </style>
@@ -418,10 +432,8 @@ studioRow.appendChild(marvel);
   <h2 class="connections-title">my connections</h2>
   <nav class="connections" aria-label="Connections">
     
-   <a class="connection-btn letterboxd" href="https://boxd.it/cuPZX" target="_blank">
-     <img class="connection-icon" src="https://cdn.jsdelivr.net/npm/simple-icons@v8/icons/letterboxd.svg">
-     <span class="connection-label">Letterboxd</span>
-   </a>
+  <a href="https://boxd.it/cuPZX" class="connection-btn logo-only letterboxd" target="_blank" rel="noopener noreferrer"></a>
+
 
     
     <a class="connection-btn" href="https://serializd.com/user/scytale" target="_blank" rel="noopener noreferrer">
