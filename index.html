@@ -214,36 +214,43 @@
       box-shadow:0 6px 20px rgba(0,0,0,0.5);
     }
 
-    /* Logo-only buttons */
     .connection-btn.logo-only{
-      width: 36px; 
-      height: 36px;
-      padding: 0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background-color: transparent;
-      border-radius: 50%;
-      background-repeat: no-repeat;
-      background-position: center;
-      background-size: contain;
-      filter: brightness(0) invert(1); /* أبيض/أسود */
-      transition: filter .25s ease, transform .2s ease;
-      cursor: pointer;
-    }
+  width: 36px; 
+  height: 36px;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  cursor: pointer;
+  transition: filter .25s ease, transform .2s ease;
+}
 
-    .connection-btn.letterboxd{
-      background-image: url("https://brandfetch.com/letterboxd.com/download/idYZy_U6KT/Letterboxd_Logo.png");
-    }
+/* Letterboxd */
+.connection-btn.letterboxd{
+  background-image: url("https://brandfetch.com/letterboxd.com/download/idYZy_U6KT/Letterboxd_Logo.png");
+  filter: grayscale(100%); /* أبيض/أسود */
+}
 
-    .connection-btn.plex{
-      background-image: url("https://cdn.jsdelivr.net/npm/simple-icons@v8/icons/plex.svg");
-    }
+.connection-btn.letterboxd:hover{
+  filter: none; /* اللون الطبيعي يظهر */
+  transform: translateY(-2px);
+}
 
-    .connection-btn.logo-only:hover{
-      filter: none;
-      transform: translateY(-2px);
-    }
+/* Plex */
+.connection-btn.plex{
+  background-image: url("https://upload.wikimedia.org/wikipedia/commons/3/3a/Plex_logo.png");
+  filter: grayscale(100%);
+}
+
+.connection-btn.plex:hover{
+  filter: none;
+  transform: translateY(-2px);
+}
+
 
     @media (max-width: 700px) {
       .fav-row { grid-template-columns: repeat(2, 1fr); }
@@ -322,7 +329,7 @@
     </a>
 
     <!-- Plex Logo-only -->
-    <a class="connection-btn logo-only plex" href="https://l.plex.tv/M7QWb7PF" target="_blank" rel="noopener noreferrer"></a>
+   <a href="https://l.plex.tv/M7QWb7PF" class="connection-btn logo-only plex" target="_blank" rel="noopener noreferrer"></a>
 
     <!-- TMDb -->
     <a class="connection-btn" href="https://themoviedb.org/u/hzem" target="_blank" rel="noopener noreferrer">
