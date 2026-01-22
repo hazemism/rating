@@ -177,8 +177,8 @@
     .letterboxd-dots span {
       width: 20px;
       height: 20px;
-      margin-left: -5px;
-      border: 2px solid #fff;
+      position: relative;
+      margin-left: -4px;
       background: #fff;
       border-radius: 50%;
       display: block;
@@ -186,6 +186,27 @@
       filter: grayscale(100%);
       transition: filter .25s ease, background .25s ease;
     }
+
+    .letterboxd-dots span::before{
+     content:"";
+     position:absolute;
+     left:-4px;         
+     top:0;
+     width:4px;         
+     height:100%;
+     background:#fff;
+     border-radius:50%;
+     z-index:2;
+   }
+
+   .letterboxd-dots span:first-child::before{
+     display:none;
+   }
+
+    .letterboxd-dots span:first-child{
+       margin-left: 0;
+    }
+
 
     .connection-btn.logo-only.letterboxd:hover span:nth-child(1){ background:#ff8000; filter:none; }
     .connection-btn.logo-only.letterboxd:hover span:nth-child(2){ background:#00d735; filter:none; }
