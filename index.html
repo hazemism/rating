@@ -262,6 +262,31 @@
       .rating-table { font-size: 0.75rem; }
       .desc { max-width: 100%; }
     }
+
+
+    .discord-card{
+  max-width: 380px;
+  margin: 20px auto 0;
+  padding: 10px;
+  border-radius: 16px;
+  background: rgba(255,255,255,0.08);
+  box-shadow: 0 10px 35px rgba(0,0,0,0.45);
+  backdrop-filter: blur(10px);
+}
+
+.discord-card img{
+  width: 100%;
+  display: block;
+  border-radius: 12px;
+}
+
+
+
+
+
+    
+
+    
   </style>
 </head>
 
@@ -319,6 +344,15 @@
   <h2 class="connections-title">my connections</h2>
   <nav class="connections" aria-label="Connections">
 
+    <div class="discord-card">
+  <img 
+    src="https://discord.c99.nl/widget/theme-4/1390659524154757140.png"
+    alt="Discord status"
+    loading="lazy"
+  >
+</div>
+
+
     <!-- Letterboxd Logo -->
     <a href="https://boxd.it/cuPZX" class="connection-btn logo-only letterboxd" target="_blank" rel="noopener noreferrer">
       <div class="letterboxd-dots">
@@ -352,6 +386,7 @@
       <span class="connection-label">IMDb</span>
     </a>
 
+    
   </nav>
 
 </main>
