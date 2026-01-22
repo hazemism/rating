@@ -174,34 +174,17 @@
       height: 60px;
     }
 
-    .letterboxd-dots span {
+   .letterboxd-dots span {
       width: 20px;
       height: 20px;
       position: relative;
-      margin-left: -4px;
+      margin-left: -8px;
       background: #fff;
       border-radius: 50%;
       display: block;
-      background: #fff;
       filter: grayscale(100%);
       transition: filter .25s ease, background .25s ease;
     }
-
-    .letterboxd-dots span::before{
-     content:"";
-     position:absolute;
-     left:-4px;         
-     top:0;
-     width:4px;         
-     height:100%;
-     background:#fff;
-     border-radius:50%;
-     z-index:2;
-   }
-
-   .letterboxd-dots span:first-child::before{
-     display:none;
-   }
 
     .letterboxd-dots span:first-child{
        margin-left: 0;
